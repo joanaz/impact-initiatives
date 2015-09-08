@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/joanaz/impact-initiatives.png?label=ready&title=Ready)](https://waffle.io/joanaz/impact-initiatives)
 [![GitHub issues](https://img.shields.io/github/issues/joanaz/impact-initiatives.svg?style=plastic)](https://github.com/joanaz/impact-initiatives/issues)
 [![Stories in Ready](https://badge.waffle.io/joanaz/facepage.svg?label=ready&title=Ready)](https://waffle.io/joanaz/impact-initiatives)
 [![Stories in In Progress](https://badge.waffle.io/joanaz/facepage.svg?label=In%20Progress&title=In%20Progress)](https://waffle.io/joanaz/impact-initiatives) 
