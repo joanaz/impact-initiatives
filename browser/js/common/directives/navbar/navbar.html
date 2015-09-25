@@ -1,17 +1,36 @@
-<nav class="navbar navbar-static-top">
-    <div class="container">
+<nav class="navbar navbar-static-top sbl-navbar">
+    <div class="container ">
         <div class="navbar-header">
-            <fullstack-logo></fullstack-logo>
+            <a class="navbar-brand">
+                <logo></logo>
+            </a>
         </div>
         <ul class="nav navbar-nav">
             <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
                 <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
             </li>
         </ul>
-        <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
-        <div ng-show="user" class="welcome">
-            <span>Welcome, {{ user.email }}!</span>
-            <a ng-click="logout()">Logout</a>
+        <form class="navbar-form navbar-left" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search 2BL">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </form>
+        <div class="nav navbar-nav navbar-right">
+            <button ng-show="!user" ui-sref="login" class="btn btn-default navbar-btn">Login</button>
+            <button ng-show="!user" ui-sref="signup" class="btn btn-default navbar-btn">Sign up</button>
+            <div ng-show="user" class="welcome dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, {{ user.email }}! <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

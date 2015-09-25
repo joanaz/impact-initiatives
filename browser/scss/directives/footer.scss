@@ -1,0 +1,25 @@
+my-footer {
+  position: relative;
+
+  // bottom: 0px;
+  width: 100%;
+  height: 60px;
+
+  #footer {
+    background-color: #F5F5F5;
+  }
+
+  .footer-text {
+    margin: 5px 0;
+  }
+
+  .left {
+    padding: 10px;
+    float: left;
+  }
+
+  .right {
+    padding: 10px;
+    float: right;
+  }
+}

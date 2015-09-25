@@ -1,9 +1,18 @@
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+html {
+  height: 100%;
 }
 
 body {
   background: #fdfdfd;
+
+  // padding-top: 60px;
+  height: 100%;
 }
 
 @mixin clearfix {
@@ -15,13 +24,14 @@ body {
 }
 
 #main {
-  padding-top: 60px;
-  width: 1200px;
+  // padding-top: 60px;
+  width: 100%;
   margin: 0 auto;
+  min-height: calc(100% - 60px - 50px);
 }
 
-@import 'directives/main';
-@import 'home/main';
-@import 'about/main';
-@import 'tutorial/main';
-@import 'login/main';
+@import "directives/main";
+@import "home/main";
+@import "about/main";
+@import "tutorial/main";
+@import "login/main";
