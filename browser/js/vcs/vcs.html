@@ -1,0 +1,12 @@
+<section id="vcs">
+  <div class="container">
+    <h1>Social VCs</h1>
+    <div class="row">
+      <div class="col-sm-6 col-md-4" ng-repeat="vc in vcs">
+        <a ui-sref="vc-profile({name:vc.title})">
+          <profile-thumbnail profile="vc"></profile-thumbnail>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

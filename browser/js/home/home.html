@@ -1,31 +1,19 @@
 <section id="home">
-
     <carousel interval="5000">
       <slide ng-repeat="slide in slides" active="slide.active">
-        <img ng-src="{{slide.image}}" style="height:300px; margin:0 auto;">
+        <img ng-src="{{slide.image}}" style="height:400px; margin:0 auto;">
         <!-- <div class="carousel-caption">
           <h4>{{slide.name}}</h4>
           <p>{{slide.description}}</p>
         </div> -->
       </slide>
     </carousel>
-
-
   <hr>
-
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-md-4" ng-repeat="category in categories">
-        <div class="thumbnail">
-          <img ng-src="{{category.image}}" alt="...">
-          <div class="caption">
-            <h3>{{category.name}}</h3>
-            <p>{{category.text}}</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
-        </div>
+        <profile-thumbnail profile="category"></profile-thumbnail>
       </div>
     </div>
   </div>
-    
 </section>
