@@ -4,83 +4,124 @@
     <div class="row">
       <div class="col-md-8">
         <h1>{{company.title}} <small>{{company.text}}</small></h1>
-        <p>{{company.description}}</p>
+        <h4>{{company.description}}</h4>
       </div>
-      <div class="col-md-4 ">
-        <div class=" well " >
-          <h3>Overall Score: <b>95</b><small>/100</small></h3>
-        </div>
-        <div class="row">
-          <div class="col-md-9 fb-like" data-href="http://2u.com/" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
-          </div>
-          <div class="col-md-3">
+      <div class="col-md-4 top-padding">
+        <h3>Overall Score: <b>95</b><small>/100</small></h3>
+        <div class=" top-padding">
+          
+          <!-- <div class="col-md-3"> -->
             <button class="btn btn-primary">Follow</button>
           </div>
-        </div>
+          <div class="fb-like top-padding" data-href="http://2u.com/" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+          </div>
+        <!-- </div> -->
       </div>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-8">
-        <h2>Metrics</h2>
-        <div class="row">
-          <div class="col-sm-4 col-md-3" ng-repeat="metric in company.metrics">
-            <metric-thumbnail metric="metric"></metric-thumbnail>
+    <!-- <hr> -->
+    <div class="row top-padding">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>Goals</h2>
+           
+            <p ng-repeat="goal in company.goals">{{$index+1}}. {{goal}}</p>
+      
+            <!-- <h4 ng-repeat="goal in company.goals">
+            <span class="label label-success">{{goal}}</span></h4> -->
           </div>
         </div>
-      </div>
-      <div class="col-md-4 ">
-        <h2>Goals</h2>
-        <h3 ng-repeat="goal in company.goals">
-        <span class="label label-success">{{goal}}</span></h3>
+        <!-- <hr> -->
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>Company Details</h2>
+            <p ng-repeat="entry in company.details">{{entry}}</p>
+          </div>
+        </div>
+        <!-- <hr> -->
+        <!-- <h2>Social</h2> -->
+        <!-- <img src="/2UTwitter.png" style="width:100%; display: block; margin:0 auto;"> -->
         
+
+        <a class="twitter-timeline"
+          href="https://twitter.com/search?q=%402Uinc"
+          data-widget-id="649647925874679808"
+        data-tweet-limit="5">Tweets about @2Uinc</a>
+        <!-- <hr> -->
+        <div class="fb-page top-padding" data-href="https://www.facebook.com/2U" data-height="1500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/2U"><a href="https://www.facebook.com/2U">2U</a></blockquote></div></div>
       </div>
-    </div>
-    <hr>
-    <div class="row">
       <div class="col-md-8">
-        <h2>Stories</h2>
-        <div class="well" ng-repeat="story in company.stories">
-          <p><i class="fa fa-quote-left fa-3x fa-pull-left"></i>{{story.text}}</p>
-          <p>
-          <div class="row">
-            <div class="col-md-1"><img class="img-circle" ng-src="{{story.image}}" style="height:50px;"></div>
-            <div class="col-md-11"><p><i> {{story.author}}</i></p></div>
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>Metrics</h2>
+            <div class="row">
+              <div class="col-sm-4 col-md-3" ng-repeat="metric in company.metrics">
+                <metric-thumbnail metric="metric"></metric-thumbnail>
+              </div>
+            </div>
           </div>
-        </p>
+        </div>
+        <!-- <hr> -->
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>Stories</h2>
+            <div class="well" ng-repeat="story in company.stories">
+              <p><i class="fa fa-quote-left fa-3x fa-pull-left"></i>{{story.text}}</p>
+              <p>
+                <div class="row">
+                  <div class="col-md-1"><img class="img-circle" ng-src="{{story.image}}" style="height:50px;"></div>
+                  <div class="col-md-11"><p><i> {{story.author}}</i></p></div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <hr> -->
+        <div class="thumbnail">
+          <div class="caption">
+            <!-- <h2>Videos</h2> -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe src="https://www.youtube.com/embed/aI4ZVlyrRZc" allowfullscreen>
+              <p>Your browser does not support iframes.</p>
+              </iframe>
+            </div>
+          </div>
+        </div>
+        <!-- <hr> -->
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>News</h2>
+            <div ng-repeat="article in company.news">
+              <story-media story="article"></story-media>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <!-- <hr> -->
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>Investors</h2>
+            <img src="/2UInvestors.png" style="width:100%; display: block; margin:0 auto;">
+          </div>
+        </div>
+        <!-- <hr> -->
+        <div class="thumbnail">
+          <div class="caption">
+            <h2>Similar Companies</h2>
+            <img src="/2UCompetitors.png" style="width:100%; display: block; margin:0 auto;">
+          </div>
         </div>
       </div>
-      <div class="col-md-4 ">
-        <h2>Company Details</h2>
-        <p ng-repeat="entry in company.details">{{entry}}</p>
-      </div>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-8">
-        <h2>News</h2>
-        <div ng-repeat="article in company.news">
-          <story-media story="article"></story-media>
-          <hr>
+    <!-- <hr> -->
+    <div class="thumbnail">
+      <div class="caption">
+        <h2>Impact Report</h2>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="http://2u.com/impact-report-2015/">
+          <p>Your browser does not support iframes.</p>
+          </iframe>
         </div>
-      </div>
-      <div class="col-md-4 ">
-        <h2>Social</h2>
-        <img src="/2UTwitter.png" style="width:100%; display: block; margin:0 auto;">
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-8">
-        <h2>Investors</h2>
-        <img src="/2UInvestors.png" style="width:100%; display: block; margin:0 auto;">
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-8">
-        <h2>Similar Companies</h2>
-        <img src="/2UCompetitors.png" style="width:100%; display: block; margin:0 auto;">
       </div>
     </div>
   </div>

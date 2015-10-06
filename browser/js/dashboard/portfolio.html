@@ -1,0 +1,9 @@
+<accordion close-others="false">
+  <accordion-group heading="{{company.title}}" is-open="true" ng-repeat="company in companies">
+    <div class="row">
+      <div class="col-md-3" ng-repeat="metric in company.metrics">
+        <metric-thumbnail metric="metric"></metric-thumbnail>
+      </div>
+    </div>
+  </accordion-group>
+</accordion>

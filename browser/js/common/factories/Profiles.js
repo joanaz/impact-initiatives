@@ -1,4 +1,4 @@
-app.factory('ProfilesFactory', function($http) {
+app.factory('ProfilesFactory', function() {
   var companies = [{
     image: "/2U.png",
     title: "2U",

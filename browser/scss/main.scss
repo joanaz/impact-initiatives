@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background: #fdfdfd;
+  background: darken(#fdfdfd, 3%);
 
   // padding-top: 60px;
   height: 100%;
@@ -30,8 +30,13 @@ body {
   min-height: calc(100% - 60px - 50px);
 }
 
+.top-padding {
+  padding-top: 10px;
+}
+
 @import "directives/main";
 @import "home/main";
 @import "about/main";
 @import "tutorial/main";
 @import "login/main";
+@import "companies/main";

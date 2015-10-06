@@ -7,8 +7,14 @@ navbar {
 
   .sbl-navbar {
     margin-bottom: 0px;
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
+    padding: 5px 10px !important;
+
+    // padding-bottom: 5px !important;
+ 
+  }
+
+  .navbar-right {
+    margin-right: 15px;
   }
 
   // .container {
@@ -23,21 +29,27 @@ navbar {
   //   width: 40px;
   // }
 
-  // a {
-  //   color: black;
-  //   font-size: 16px;
-  // }
+  a {
+    color: darken(grey, 10%);
+    font-weight: bold;
+
+    // font-size: 16px;
+ 
+  }
 
   // .nav > li > a {
   //   cursor: pointer;
   //   transition: color 0.2s;
+
   //   &.active {
   //     color: darken(#f31214, 10%);
   //   }
+
   //   &:hover {
   //     background: none;
   //     color: #f31214;
   //   }
+
   //   &:focus {
   //     background: none;
   //   }
@@ -45,21 +57,33 @@ navbar {
 
   // .login-button {
   //   float: right;
-  //   border: 1px solid black;
+  //   border: 5px solid black;
   //   margin-top: 10px;
   //   background: none;
   //   outline: none !important;
   // }
 
-  // .welcome {
-  //   float: right;
-  //   margin-top: 12px;
-  //   span {
-  //     color: white;
-  //   }
-  //   a {
-  //     color: #f30046;
-  //     cursor: pointer;
-  //   }
-  // }
+  .welcome {
+    margin-top: 15px;
+
+    a {
+      &:hover {
+        color: white;
+      }
+
+      &:focus {
+        color: white;
+        background-color: none !important;
+      }
+    }
+
+    li > a {
+      color: darken(turquoise, 10%);
+      font-weight: bold;
+
+      &:hover {
+        color: darken(grey, 10%);
+      }
+    }
+  }
 }
