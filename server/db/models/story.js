@@ -6,12 +6,13 @@ var schema = new mongoose.Schema({
         type: String
     },
     writer: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
     company: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 });
+
 mongoose.model('Story', schema);
