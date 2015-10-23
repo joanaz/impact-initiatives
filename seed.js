@@ -51,6 +51,16 @@ var seedUsers = function() {
 
 };
 
+// var story;
+
+// User.findOne().then(function(user) {
+//     story.writer = user.id;
+//     User.findOne().then(function(user) {
+//         story.company = user.id
+//         Story.create(story)
+//     })
+// })
+
 connectToDb.then(function() {
     User.findAsync({}).then(function(users) {
         if (users.length === 0) {

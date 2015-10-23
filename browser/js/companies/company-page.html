@@ -1,0 +1,51 @@
+<div>
+  <img ng-src="{{company.image}}" style="width:100%; display: block; margin:0 auto;"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>{{company.title}} <small>{{company.text}}</small></h1>
+        <h4>{{company.description}}</h4>
+      </div>
+      <div class="col-md-4 top-padding">
+        <div>
+          <star-rating></star-rating>
+        </div>
+        <div class="top-padding">
+          <!-- <div class="col-md-3"> -->
+          <button class="btn btn-primary">Write a story</button>
+        </div>
+        <div class="fb-like top-padding" data-href="http://2u.com/" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-6 col-md-4" ng-repeat="story in company.stories">
+        <div class="thumbnail" ng-if="story.type=='image'">
+          <img ng-src="{{story.image}}">
+          <div class="caption">
+            <h3>{{story.text}}</h3>
+          </div>
+        </div>
+        <div class="thumbnail" ng-if="story.type=='video'">
+          <div class="caption">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe ng-src="{{story.video}}" allowfullscreen>
+              <p>Your browser does not support iframes.</p>
+              </iframe>
+            </div>
+            <h3>{{story.text}}</h3>
+          </div>
+        </div>
+        <div class="thumbnail" ng-if="story.type=='text'">
+          <div class="caption">
+            <h3>{{story.text}}</h3>
+            <img class="img-circle" ng-src="{{story.image}}" height="50" width="50">
+            <p>{{story.author}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

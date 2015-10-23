@@ -27,18 +27,41 @@ app.factory('ProfilesFactory', function() {
       text: "Post-Grad Job Placement Rate",
       date: "Dec 31, 13"
     }],
+    // stories: [{
+    //   type: "image",
+    //   image: "http://ww1.prweb.com/prfiles/2012/02/03/9265267/2u_logo_version1.jpg",
+    //   text: "caption"
+    // }, {
+    //   type: "text",
+    //   text: "The flexible nature of the program also allows me to be an active part of the UNC",
+    //   image: "/student2.png",
+    //   author: "Candice Brown"
+    // }, {
+    //   type: "video",
+    //   video: "https://www.youtube.com/embed/aI4ZVlyrRZc",
+    //   text: 'some text',
+    // }],
     stories: [{
+      date: "09-10-2015",
       image: "/student1.png",
+      author: "Erin Boehmer, Masters of Information and Data Science UC Berkeley, Systems engineer for the United States Air Force",
+      rating: 5,
+      title: "LOVE IT SO MUCH",
       text: "In a single day, I can fulfill my duties at the Air Force Base, discuss current events in data privacy during my live MIDS sessions, and then walk to the weekly Code for America hack session. I am so thankful MIDS allows me to extend my understanding of data science academically at Berkeley while continuing my endeavors in Boston.",
-      author: "Erin Boehmer, Masters of Information and Data Science UC Berkeley, Systems engineer for the United States Air Force"
     }, {
+      date: "08-22-2015",
       image: "/student2.png",
-      text: "I’ve got a demanding job, and I lost my father during the first year of the program and my grandfather six months later… Without question, at these moments it was the most supportive and cooperative program I could imagine being a part of. The flexible nature of the program also allows me to be an active part of the UNC community wherever I am. I’ve gone to class in airports…in my car. You can’t do that with a program that’s traditional brick and mortar.",
-      author: "Candice Brown, Masters of Business Administration UNC Kenan-Flagler, UNC Kenan-Flagler Alumni Council"
+      author: "Candice Brown, Masters of Business Administration UNC Kenan-Flagler, UNC Kenan-Flagler Alumni Council",
+      rating: 4,
+      title: "AMAZING COMPANY BUT STILL YOUNG",
+      text: "I’ve got a demanding job, and I lost my father during the first year of the program and my grandfather six months later… Without question, at these moments it was the most supportive and cooperative program I could imagine being a part of. The flexible nature of the program also allows me to be an active part of the UNC community wherever I am. I’ve gone to class in airports…in my car. You can’t do that with a program that’s traditional brick and mortar."
     }, {
+      date: "06-15-2015",
       image: "/Jackson.jpg",
-      text: "At the end of my first immersion in September 2014, I saw many of my fellow students in tears — they were sad to conclude the great experience we had during those few days. I have never experienced anything like that in an academic setting.",
-      author: "Thomas Jackson, MHA@GW student"
+      author: "Thomas Jackson, MHA@GW student",
+      rating: 4,
+      title: "THANK YOU!",
+      text: "At the end of my first immersion in September 2014, I saw many of my fellow students in tears — they were sad to conclude the great experience we had during those few days. I have never experienced anything like that in an academic setting."
     }],
     news: [{
       url: "http://www.prnewswire.com/news-releases/2u-inc-announces-pricing-of-public-offering-of-common-stock-300149020.html",

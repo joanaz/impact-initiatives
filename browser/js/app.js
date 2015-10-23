@@ -1,11 +1,18 @@
 'use strict';
 window.app = angular.module('2BL', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt']);
 
-app.config(function($urlRouterProvider, $locationProvider) {
+app.config(function($urlRouterProvider, $locationProvider, $sceDelegateProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)
     $locationProvider.html5Mode(true);
     // If we go to a URL that ui-router doesn't have registered, go to the "/" url.
     $urlRouterProvider.otherwise('/');
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+        // Allow same origin resource loads.
+        'self',
+        // Allow loading from youtube
+        'https://www.youtube.com/embed/**'
+    ]);
 });
 
 // This app.run is for controlling access to specific states.
