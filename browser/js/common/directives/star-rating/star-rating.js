@@ -3,7 +3,7 @@ app.directive('starRating', function() {
     restrict: 'E',
     templateUrl: 'js/common/directives/star-rating/star-rating.html',
     link: function(scope) {
-      console.log(scope.rating)
+      // console.log(scope.rating)
     }
   };
 

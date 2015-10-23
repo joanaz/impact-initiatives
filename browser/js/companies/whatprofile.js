@@ -1,5 +1,5 @@
 app.config(function($stateProvider) {
-  $stateProvider.state('company-profile', {
+  $stateProvider.state('blah', {
     url: '/companies/:name',
     templateUrl: 'js/companies/company-profile.html',
     controller: ($scope, $stateParams, ProfilesFactory) => {

@@ -4,6 +4,7 @@ app.config(function($stateProvider) {
     templateUrl: 'js/companies/company-page.html',
     controller: ($scope, $stateParams, ProfilesFactory) => {
       $scope.company = ProfilesFactory.getCompany($stateParams.name)
+      console.log($scope.company)
 
     }
   });
