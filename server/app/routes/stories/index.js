@@ -14,3 +14,12 @@ router.get('/', function(req, res, next) {
     })
     .then(null, next);
 });
+
+// post a new story (sends it back to frontend)
+router.post('/', function(req, res, next) {
+    var story = new Story(req.body);
+    story.save(function(err, savedStory) {
+        if (err) return next(err);
+        res.status(201).json(savedStory);
+    });
+});
