@@ -1,0 +1,18 @@
+  <div class="top-padding container">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Tell Us Your {{company.title}} Story</h3>
+      </div>
+      <div class="panel-body">
+      <p>{{company.text}}</p>
+   
+      <div class="form-group">
+        <label for="comment">How has {{company.title}} affected you?</label>
+        <textarea class="form-control" rows="5" id="comment" placeholder="Cornell Tech has been..." ng-model="newStory"></textarea>
+      </div>
+      <p align="right"><button class="btn btn-primary" ng-click="changeState()">Next > </button></p>
+      </div>
+    </div>
+
+  </div>

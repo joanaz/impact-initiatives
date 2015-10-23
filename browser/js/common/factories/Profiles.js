@@ -1,7 +1,72 @@
 app.factory('ProfilesFactory', function() {
   var companies = [{
+    image: "https://pbs.twimg.com/profile_images/634014441462300672/2uKkwgQk.jpg",
+    title: "Cornell Tech",
+    url: "cornell-tech",
+    text: "We develop pioneering leaders and technologies for the digital age.",
+    details: [],
+    metrics: [],
+    website: "tech.cornell.edu",
+    stories: [{
+      date: "23-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Hesed Kim",
+      anthorDescription: "",
+      image: "survey_results/R_2OYJpC3ag4S9uox~IMG_2962.jpg",
+      title: "",
+      text: "Cornell Tech Multidisciplinary Student Team explore NYC by foot!"
+    }, {
+      date: "23-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Anonymous",
+      anthorDescription: "",
+      text: "This is a story, the best story ever told. "
+    }, {
+      date: "22-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Anonymous",
+      anthorDescription: "",
+      image: "",
+      title: "",
+      text: "I love Cornell Tech because it is capable of giving me exactly the education I want: both challenging masters level computer science as well as top notch product design experience. The professors and students bring an unrelenting energy to their work. I wouldn't want to go anywhere else."
+    }, {
+      date: "22-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Ian Folau",
+      anthorDescription: "",
+      title: "",
+      text: "This is how much I love cookies from Cornell Tech",
+      video: "survey_results/R_3Ecp0C4JNb1Y0tV~MyCTStory.mp4"
+    }, {
+      date: "22-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Claire Opila",
+      anthorDescription: "",
+      title: "",
+      image: "survey_results/R_27dOaVct557R1Wy~IMG_4717.jpg",
+      text: "My name is Claire. I am a full time IS, CM student at Cornell Tech. I am currently doing a studio sprint. "
+    }, {
+      date: "22-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Anonymous",
+      anthorDescription: "",
+      title: "",
+      image: "survey_results/R_2sbYVGnvveKIWrj~IMG_2009.jpg",
+      text: "",
+    }, {
+      date: "22-10-2015",
+      profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+      author: "Carlos Fernandez",
+      anthorDescription: "",
+      title: "",
+      image: "survey_results/R_807zMYzZzyNRW01~image.jpg",
+      text: "",
+    }]
+  }, {
     image: "/2U.png",
     title: "2U",
+    url: "2u",
+    website: "http://2u.com",
     text: "Increasing access to quality education by partnering with leading universities to offer degree programs online",
     description: "2U enables leading colleges and universities to deliver their high-quality education to qualified students anywhere. Its cloudbased software-as-a-service platform provides schools with the comprehensive operating infrastructure they need to attract, enroll, educate, support and graduate their students. 2U ensures that every student can experience the highest quality university education for the most successful outcome.",
     goals: ["Number of graduates", "Affordability and accessibility", "Savings from online education", "Educational achievement", "Success in workplace after completing the degree"],
@@ -122,7 +187,7 @@ app.factory('ProfilesFactory', function() {
     getAllCompanies: () => companies,
     getAllCategories: () => categories,
     getAllVCs: () => vcs,
-    getCompany: (name) => companies.filter(elem => elem.title === name)[0],
+    getCompany: (url) => companies.filter(elem => elem.url === url)[0],
     getVC: (name) => vcs.filter(elem => elem.title === name)[0]
   }
 })

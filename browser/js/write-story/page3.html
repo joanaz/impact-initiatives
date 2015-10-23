@@ -1,0 +1,24 @@
+<div class="top-padding container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tell Us Your {{company.title}} Story</h3>
+    </div>
+    <div class="panel-body">
+      <p>A picture is worth a thousand words. Won't you share one with us?</p>
+      <div class="row">
+      <div class="col-md-3" ng-repeat="photo in photos">
+        <img ng-src="{{photo}}" style="width:100%;">
+      </div>
+      <div class="col-md-3" >
+      <button class="btn btn-lg btn-primary"><i class="fa fa-4x fa-plus-circle"></i><br>
+UPLOAD</button>
+      <a ui-sref="company-page({url:company.url})">No thanks.</a>
+    </div>
+ 
+      
+      
+     </div>
+     <p align="right"><button class="btn btn-primary" ng-click="changeState()">Next</button></p>
+    </div>
+  </div>
+</div>

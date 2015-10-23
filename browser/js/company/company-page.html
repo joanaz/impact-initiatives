@@ -1,0 +1,77 @@
+<div class="top-padding container">
+  <h1 align="center">{{company.title}} </h1>
+  <h2 align="center"><small>{{company.text}}</small></h2>
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>STORIES</h2>
+      <div class="thumbnail" ng-repeat="story in company.stories">
+        <div class="caption row">
+          <div class="col-md-3">
+            <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">
+            <h5> {{story.author}}</h5>
+            <p>{{story.anthorDescription}}</p>
+          </div>
+          <div class="col-md-9">
+            <h4>{{story.title}}</h4>
+            <h3>
+              <i class="fa fa-star text-warning"></i>
+              <i class="fa fa-star   text-warning"></i>
+              <i class="fa fa-star  text-warning"></i>
+              <i class="fa fa-star  text-warning"></i>
+              <i class="fa fa-star-o   text-warning"></i>
+              
+              <small>{{story.date}}</small>
+              
+            </h3>
+            
+            <p align="center">
+              <img ng-src="{{story.image}}" ng-if="story.image" style="width:100%;">
+            </p>
+            <p>
+              <div class="embed-responsive embed-responsive-16by9" ng-if="story.video">
+                <iframe ng-src="{{story.video}}" allowfullscreen>
+                <p>Your browser does not support iframes.</p>
+                </iframe>
+              </div>
+            </p>
+            <p>{{story.text}}</p>
+            <p align="center">
+            <button class="btn btn-lg btn-default"><i class="fa fa-heart text-danger"></i> Like</button>
+            <button class="btn btn-lg btn-default"><i class="fa fa-share-alt text-warning"></i> Share</button>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+    <h1>15</h1>
+    <h5>total reviews</h5>
+    <br>
+    <h1>84%</h1>
+    <h5>positive sentiment</h5>
+    <br>
+    <h1>
+    <i class="fa fa-star text-primary"></i>
+    <i class="fa fa-star text-primary"></i>
+    <i class="fa fa-star text-primary"></i>
+    <i class="fa fa-star  text-primary"></i>
+    <i class="fa fa-star-o text-primary"></i>
+    </h1>
+    <h5>average rating</h5>
+    <br>
+    <h1><button class="btn btn-lg btn-primary" ng-click="write()">Get An Invite To Write A Story</button></h1>
+<br>
+      <h2>About</h2>
+      <div class="well">
+        <!-- <div class="caption"> -->
+        <p ng-repeat="entry in company.details">{{entry}}</p>
+        <p>Website: <a href="{{company.website}}">{{company.website}}</a></p>
+        <!-- </div> -->
+      </div>
+      <div ng-repeat="metric in company.metrics">
+        <metric-thumbnail metric="metric"></metric-thumbnail>
+      </div>
+    </div>
+  </div>
+</div>
