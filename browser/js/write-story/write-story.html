@@ -1,18 +1,58 @@
-  <div class="top-padding container">
-  
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Tell Us Your {{company.title}} Story</h3>
-      </div>
-      <div class="panel-body">
-      <p>{{company.text}}</p>
-   
-      <div class="form-group">
-        <label for="comment">How has {{company.title}} affected you?</label>
-        <textarea class="form-control" rows="5" id="comment" placeholder="Cornell Tech has been..." ng-model="newStory"></textarea>
-      </div>
-      <p align="right"><button class="btn btn-primary" ng-click="changeState()">Next > </button></p>
+<div class="top-padding container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">A sample story</h3>
+        </div>
+        <div class="panel-body">
+        </div>
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Tell us your {{company.title}} story</h3>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class="form-group clearfix">
+              <label for="rate">How would you rate {{company.title}}?</label>
+              <h2 id="rate">
 
+              <fieldset class="rating">
+              <!--     <legend>Please rate:</legend> -->
+                  <input type="radio" id="star5" name="rating" value="5" ng-model="rating"/><label for="star5" title="Rocks!">5 stars</label>
+                  <input type="radio" id="star4" name="rating" value="4" ng-model="rating"/><label for="star4" title="Pretty good">4 stars</label>
+                  <input type="radio" id="star3" name="rating" value="3" ng-model="rating"/><label for="star3" title="Meh">3 stars</label>
+                  <input type="radio" id="star2" name="rating" value="2" ng-model="rating"/><label for="star2" title="Kinda bad">2 stars</label>
+                  <input type="radio" id="star1" name="rating" value="1" ng-model="rating"/><label for="star1" title="Sucks big time">1 star</label>
+              </fieldset>
+              </h2>
+            </div>
+            
+            <div class="form-group">
+              <label for="comment">How has {{company.title}} affected you?</label>
+              <textarea class="form-control" rows="5" id="comment" placeholder="Cornell Tech has been..." ng-model="newStory"></textarea>
+            </div>
+            
+            
+            
+            <div class="form-group">
+              <label for="upload">Please upload an image or a video</label>
+              <input type="file" id="upload" ngf-select="" ng-model="imageFile" name="file">
+              
+              
+              <p class="help-block">A picture is worth a thousand words. Won't you share one with us?</p>
+              
+            </div>
+            <img ngf-src="imageFile">
+            
+            
+            <p align="center"><button class="btn btn-info" ng-click="changeState()">Submit</button>   <a ui-sref="company-page({url:company.url})">Cancel</a>  </p>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
