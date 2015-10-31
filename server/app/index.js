@@ -1,7 +1,6 @@
 'use strict';
 var path = require('path');
 var express = require('express');
-var multer = require('multer');
 var app = express();
 
 module.exports = app;
@@ -10,17 +9,9 @@ module.exports = app;
 // function located at server/app/configure/index.js
 require('./configure')(app);
 
-
-
-app.use('/uploads', express.static(__dirname + "/uploads"));
-app.use(multer({
-  dest: './uploads/'
-}))
-
 // Routes that will be accessed via AJAX should be prepended with
 // /api so they are isolated from our GET /* wildcard.
 app.use('/api', require('./routes'));
-
 
 /*
  This middleware will catch any URLs resembling a file extension

@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var Story = mongoose.model('Story');
 
 var multiparty = require('multiparty'); // https://github.com/andrewrk/node-multiparty
-// var multer = require('multer');
+var multer = require('multer');
 var AWS = require('aws-sdk');
 
 var accessKeyId = 'AKIAJRXI4IXUK4RSQHAA';
