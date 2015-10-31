@@ -2,8 +2,14 @@
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
+    image: {
+        type: String
+    },
     text: {
         type: String
+    },
+    rating: {
+        type: Number
     },
     writer: {
         type: mongoose.Schema.Types.ObjectId,
@@ -12,7 +18,7 @@ var schema = new mongoose.Schema({
     company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
 });
 
 mongoose.model('Story', schema);

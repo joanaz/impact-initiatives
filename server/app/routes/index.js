@@ -6,6 +6,7 @@ router.use('/members', require('./members'));
 router.use('/stories', require('./stories'));
 router.use('/users', require('./users'));
 router.use('/uploadManager', require('./uploadManager'))
+router.use('/companies', require('./companies'))
 
 // Make sure this is after all of
 // the registered routes!

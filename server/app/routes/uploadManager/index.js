@@ -5,9 +5,9 @@ var _ = require('lodash');
 
 // config the uploader
 var options = {
-    tmpDir: __dirname + '/../public/uploaded/tmp',
-    publicDir: __dirname + '/../public/uploaded',
-    uploadDir: __dirname + '/../public/uploaded/files',
+    tmpDir: __dirname + '/../../../../public/uploaded/tmp',
+    publicDir: __dirname + '/../../../../public/uploaded',
+    uploadDir: __dirname + '/../../../../public/uploaded/files',
     uploadUrl: '/uploaded/files/',
     maxPostSize: 11000000000, // 11 GB
     minFileSize: 1,
@@ -45,6 +45,7 @@ router.get('/upload', function(req, res) {
 });
 
 router.post('/upload', function(req, res) {
+    console.log(req);
     uploader.post(req, res, function(err, obj) {
         res.send(JSON.stringify(obj));
     });
