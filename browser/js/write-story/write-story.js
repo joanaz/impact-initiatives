@@ -2,11 +2,18 @@ app.config(function($stateProvider) {
   $stateProvider.state('write-story', {
     url: '/companies/:url/write',
     templateUrl: 'js/write-story/write-story.html',
-    controller: ($scope, $state, $stateParams, ProfilesFactory) => {
+    controller: ($scope, $state, $stateParams, fileUpload, ProfilesFactory) => {
       $scope.company = ProfilesFactory.getCompany($stateParams.url)
 
 
       $scope.changeState = function() {
+        var file = $scope.myFile;
+        console.log('file is ');
+        console.dir(file);
+        var uploadUrl = "";
+        fileUpload.uploadFileToUrl(file, uploadUrl);
+
+
         $scope.company.stories.unshift({
           author: "Joanna Zhang",
           profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
