@@ -1,4 +1,4 @@
-app.factory('ProfilesFactory', function() {
+app.factory('ProfilesFactory', function($http) {
   var companies = [{
     image: "https://pbs.twimg.com/profile_images/634014441462300672/2uKkwgQk.jpg",
     title: "Cornell Tech",
@@ -8,7 +8,7 @@ app.factory('ProfilesFactory', function() {
     metrics: [],
     website: "tech.cornell.edu",
     stories: [{
-      date: "23-10-2015",
+      date: "Fri Oct 23 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Hesed Kim",
       anthorDescription: "",
@@ -16,13 +16,13 @@ app.factory('ProfilesFactory', function() {
       title: "",
       text: "Cornell Tech Multidisciplinary Student Team explore NYC by foot!"
     }, {
-      date: "23-10-2015",
+      date: "Fri Oct 23 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Anonymous",
       anthorDescription: "",
       text: "This is a story, the best story ever told. "
     }, {
-      date: "22-10-2015",
+      date: "Thurs Oct 22 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Anonymous",
       anthorDescription: "",
@@ -30,7 +30,7 @@ app.factory('ProfilesFactory', function() {
       title: "",
       text: "I love Cornell Tech because it is capable of giving me exactly the education I want: both challenging masters level computer science as well as top notch product design experience. The professors and students bring an unrelenting energy to their work. I wouldn't want to go anywhere else."
     }, {
-      date: "22-10-2015",
+      date: "Thurs Oct 22 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Ian Folau",
       anthorDescription: "",
@@ -38,7 +38,7 @@ app.factory('ProfilesFactory', function() {
       text: "This is how much I love cookies from Cornell Tech",
       video: "survey_results/R_3Ecp0C4JNb1Y0tV~MyCTStory.mp4"
     }, {
-      date: "22-10-2015",
+      date: "Thurs Oct 22 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Claire Opila",
       anthorDescription: "",
@@ -46,7 +46,7 @@ app.factory('ProfilesFactory', function() {
       image: "survey_results/R_27dOaVct557R1Wy~IMG_4717.jpg",
       text: "My name is Claire. I am a full time IS, CM student at Cornell Tech. I am currently doing a studio sprint. "
     }, {
-      date: "22-10-2015",
+      date: "Thurs Oct 22 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Anonymous",
       anthorDescription: "",
@@ -54,7 +54,7 @@ app.factory('ProfilesFactory', function() {
       image: "survey_results/R_2sbYVGnvveKIWrj~IMG_2009.jpg",
       text: "",
     }, {
-      date: "22-10-2015",
+      date: "Thurs Oct 22 2015",
       profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
       author: "Carlos Fernandez",
       anthorDescription: "",
@@ -188,6 +188,7 @@ app.factory('ProfilesFactory', function() {
     getAllCategories: () => categories,
     getAllVCs: () => vcs,
     getCompany: (url) => companies.filter(elem => elem.url === url)[0],
-    getVC: (name) => vcs.filter(elem => elem.title === name)[0]
+    getVC: (name) => vcs.filter(elem => elem.title === name)[0],
+    updateCompany: (id, data) => $http.put('/api/companies/' + id, data)
   }
 })

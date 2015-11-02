@@ -6,6 +6,44 @@
           <h3 class="panel-title">A sample story</h3>
         </div>
         <div class="panel-body">
+        <div class="thumbnail">
+          <div class="caption row">
+            <div class="col-md-3">
+              <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">
+              <h5> {{story.author}}</h5>
+              <p>{{story.anthorDescription}}</p>
+            </div>
+            <div class="col-md-9">
+              <h4>{{story.title}}</h4>
+              <h3>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa fa-star   text-warning"></i>
+                <i class="fa fa-star  text-warning"></i>
+                <i class="fa fa-star  text-warning"></i>
+                <i class="fa fa-star-o   text-warning"></i>
+                
+                <small>{{story.date}}</small>
+                
+              </h3>
+              
+              <p align="center">
+                <img ng-src="{{story.image}}" ng-if="story.image" style="width:100%;">
+              </p>
+              <p>
+                <div class="embed-responsive embed-responsive-16by9" ng-if="story.video">
+                  <iframe ng-src="{{story.video}}" allowfullscreen>
+                  <p>Your browser does not support iframes.</p>
+                  </iframe>
+                </div>
+              </p>
+              <p>{{story.text}}</p>
+              <p align="center">
+              <button class="btn btn-lg btn-default"><i class="fa fa-heart text-danger"></i> Like</button>
+              <button class="btn btn-lg btn-default"><i class="fa fa-share-alt text-warning"></i> Share</button>
+            </p>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
