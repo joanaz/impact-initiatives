@@ -15,6 +15,10 @@ app.config(function($stateProvider) {
           state: 'dashboard.profile',
           role: 'all'
         }, {
+          label: 'User Emails',
+          state: 'dashboard.emails',
+          role: 'all'
+        }, {
           label: 'Portfolio',
           state: 'dashboard.portfolio',
           role: 'VC'
@@ -32,6 +36,10 @@ app.config(function($stateProvider) {
     .state('dashboard.profile', {
       url: '',
       templateUrl: 'js/dashboard/profile.html',
+    })
+    .state('dashboard.emails', {
+      url: '/emails',
+      templateUrl: 'js/dashboard/emails.html',
     })
     .state('dashboard.portfolio', {
       url: '/portfolio',
