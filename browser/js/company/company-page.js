@@ -7,10 +7,9 @@ app.config(function($stateProvider) {
     },
     controller: ($scope, $state, company) => {
       $scope.company = company
-      console.log($scope.company)
       $scope.write = function() {
         $state.go("write-story", {
-          id: $scope.company.id
+          id: $scope.company._id
         })
       }
     }

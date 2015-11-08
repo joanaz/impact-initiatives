@@ -97,9 +97,13 @@ router.param('id', function(req, res, next, id) {
 
 router.put('/:id', upload.single('upload'),
     function(req, res) {
+        console.log("put company id");
         var story = new Story(req.body);
         story.company = req.company.id;
-        story["image"] = req.file.path.substring(7);
+        console.log(req.image);
+        if (req.image) {
+          story["image"] = req.image.path.substring(7);
+        }
         story["date"] = new Date();
         story.save(function(err, savedStory) {
             if (err) return next(err);

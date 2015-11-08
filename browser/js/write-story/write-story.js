@@ -1,10 +1,12 @@
 app.config(function($stateProvider) {
   $stateProvider.state('write-story', {
-    url: '/companies/:url/write',
+    url: '/companies/:id/write',
     templateUrl: 'js/write-story/write-story.html',
-    controller: ($scope, $state, $stateParams, ProfilesFactory) => {
-      $scope.company = ProfilesFactory.getCompany($stateParams.url)
-
+    resolve: {
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)
+    },
+    controller: ($scope, $state, ProfilesFactory, company) => {
+      $scope.company = company
       $scope.story = {
         date: "22-10-2015",
         profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -17,6 +19,8 @@ app.config(function($stateProvider) {
 
       var date = new Date();
       $scope.changeState = function() {
+        console.log($scope.company._id);
+        console.log($scope.imageFile);
         var data = {
           profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
           author: "Joanna Zhang",
@@ -24,15 +28,14 @@ app.config(function($stateProvider) {
           date: date.toDateString(),
           rating: $scope.rating,
           text: $scope.newStory,
-          image: ""
+          image: $scope.imageFile
         }
 
         $scope.company.stories.unshift(data)
-
-        // ProfilesFactory.updateCompany($scope.company.id, data)
+        ProfilesFactory.updateCompany($scope.company._id, data)
 
         $state.go('page4', {
-          url: $scope.company.url
+          id: $scope.company._id
         })
       }
     }
@@ -42,13 +45,16 @@ app.config(function($stateProvider) {
 
 app.config(function($stateProvider) {
   $stateProvider.state('page4', {
-    url: '/companies/:url/write/4',
+    url: '/companies/:id/write/4',
     templateUrl: 'js/write-story/page4.html',
-    controller: ($scope, $state, $stateParams, ProfilesFactory) => {
-      $scope.company = ProfilesFactory.getCompany($stateParams.url)
+    resolve: {
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)
+    },
+    controller: ($scope, $state, company) => {
+      $scope.company = company
       $scope.changeState = function() {
         $state.go('company-page', {
-          url: $scope.company.url
+          id: $scope.company._id
         })
       }
     }
