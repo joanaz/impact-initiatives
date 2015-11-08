@@ -1,13 +1,16 @@
 app.config(function($stateProvider) {
   $stateProvider.state('company-page', {
-    url: '/companies/:url',
+    url: '/companies/:id',
     templateUrl: 'js/company/company-page.html',
-    controller: ($scope, $state, $stateParams, ProfilesFactory) => {
-      $scope.company = ProfilesFactory.getCompany($stateParams.url)
+    resolve: {
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)
+    },
+    controller: ($scope, $state, company) => {
+      $scope.company = company
+      console.log($scope.company)
       $scope.write = function() {
-        console.log($scope.company.url)
         $state.go("write-story", {
-          url: $scope.company.url
+          id: $scope.company.id
         })
       }
     }

@@ -14,6 +14,7 @@ var multer = require('multer');
 router.get('/', function(req, res, next) {
     Company.find({}).exec()
     .then(function(companies) {
+        console.log('get companies');
         res.json(companies);
     })
     .then(null, next);
@@ -82,7 +83,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.param('id', function(req, res, next, id) {
-    Company.findById(id).exec()
+    Company.findById(id).populate('stories').exec()
         .then(function(company) {
             if (!company) throw Error('Not Found');
             req.company = company;
@@ -113,9 +114,12 @@ router.put('/:id', upload.single('upload'),
 });
 
 router.get('/:id', function(req, res, next) {
-    Company.findById(req.params.id).populate('stories').exec()
-        .then(function(company) {
-            res.json(company);
-        })
-        .then(null, next);
+    console.log("get company id");
+    // Company.findById(req.params.id).populate('stories').exec()
+    //     .then(function(company) {
+    //         console.log(company);
+
+            res.json(req.company);
+        // })
+        // .then(null, next);
 });

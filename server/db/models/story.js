@@ -8,6 +8,18 @@ var schema = new mongoose.Schema({
     video: {
         type: String
     },
+    profile: {
+        type: String
+    },
+    author: {
+        type: String
+    },
+    anthorDescription: {
+        type: String
+    },
+    title: {
+        type: String
+    },
     text: {
         type: String
     },

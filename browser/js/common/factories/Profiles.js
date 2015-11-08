@@ -184,10 +184,10 @@ app.factory('ProfilesFactory', function($http) {
   }]
 
   return {
-    getAllCompanies: () => companies,
+    getAllCompanies: () => $http.get('/api/companies').then(res => res.data),
     getAllCategories: () => categories,
     getAllVCs: () => vcs,
-    getCompany: (url) => companies.filter(elem => elem.url === url)[0],
+    getCompany: (id) => $http.get('/api/companies/' + id).then(res => res.data),
     getVC: (name) => vcs.filter(elem => elem.title === name)[0],
     updateCompany: (id, data) => $http.put('/api/companies/' + id, data)
   }
