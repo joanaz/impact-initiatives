@@ -5,6 +5,9 @@ var schema = new mongoose.Schema({
     image: {
         type: String
     },
+    video: {
+        type: String
+    },
     text: {
         type: String
     },

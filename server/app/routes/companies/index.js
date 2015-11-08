@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     .then(null, next);
 });
 
-router.get('/file', function(req, res, next){    
+router.get('/file', function(req, res, next){  
     res.writeHead(200, {'content-type': 'text/html'});
     res.end(
       '<form action="upload" enctype="multipart/form-data" method="post">'+
@@ -110,4 +110,12 @@ router.put('/:id', upload.single('upload'),
             })
             .then(null, next);
         });
+});
+
+router.get('/:id', function(req, res, next) {
+    Company.findById(req.params.id).populate('stories').exec()
+        .then(function(company) {
+            res.json(company);
+        })
+        .then(null, next);
 });
