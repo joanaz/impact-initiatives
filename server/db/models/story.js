@@ -26,6 +26,10 @@ var schema = new mongoose.Schema({
     rating: {
         type: Number
     },
+    public: {
+        type: Boolean,
+        default: false
+    }
     // writer: {
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: 'User'

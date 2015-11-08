@@ -3,7 +3,7 @@
     <h1>Social Companies</h1>
     <div class="row">
       <div class="col-sm-6 col-md-4" ng-repeat="company in companies">
-        <a ui-sref="company-page({id:company._id})">
+        <a ui-sref="company({id:company._id})">
           <profile-thumbnail profile="company"></profile-thumbnail>
         </a>
       </div>

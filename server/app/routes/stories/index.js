@@ -120,21 +120,23 @@ var upload = multer({
   storage: storage
 });
 
-router.get('/file', function(req, res, next){    
-    res.writeHead(200, {'content-type': 'text/html'});
-    res.end(
-      '<form action="upload" enctype="multipart/form-data" method="post">'+
-      '<input type="text" name="text"><br>'+
-      '<input type="file" name="upload"><br>'+
-      '<input type="submit" value="Upload">'+
-      '</form>'
-    );
+router.get('/file', function(req, res, next) {
+  res.writeHead(200, {
+    'content-type': 'text/html'
+  });
+  res.end(
+    '<form action="upload" enctype="multipart/form-data" method="post">' +
+    '<input type="text" name="text"><br>' +
+    '<input type="file" name="upload"><br>' +
+    '<input type="submit" value="Upload">' +
+    '</form>'
+  );
 });
 
 //router.post('/upload', function(req, res, next) {
 //    var form = new multiparty.Form();    
 //    form.parse(req, function(err, fields, files) {
-        //console.log(files);
+//console.log(files);
 //        if (err) {
 //            res.writeHead(400, {'content-type': 'text/plain'});
 //            res.end("invalid request: " + err.message);
@@ -170,20 +172,48 @@ router.get('/file', function(req, res, next){
 //});
 
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function(req, file, cb) {
     cb(null, './public/uploads/')
   },
-  filename: function (req, file, cb) {
+  filename: function(req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now() + '.jpg')
   }
 });
 
-var upload = multer({ storage: storage });
+var upload = multer({
+  storage: storage
+});
 
 router.post('/upload', upload.single('upload'),
-    function(req, res){
-        console.log('here');
-        console.log(req.body);
-        console.log(req.file);
-        res.redirect("/uploads"); // success
+  function(req, res) {
+    console.log('here');
+    console.log(req.body);
+    console.log(req.file);
+    res.redirect("/uploads"); // success
+  });
+
+router.param('id', function(req, res, next, id) {
+  Story.findById(id).exec()
+    .then(function(story) {
+      if (!story) throw Error('Not Found');
+      req.story = story;
+      next();
+    })
+    .then(null, function(e) {
+      if (e.name === 'CastError' || e.message === 'Not Found') e.status = 404;
+      next(e);
+    });
+});
+
+router.get('/:id', function(req, res, next) {
+  res.json(req.story);
+});
+
+router.put('/:id', function(req, res) {
+  _.merge(req.story, req.body);
+  req.story.save()
+    .then(function(story) {
+      res.json(story);
+    })
+    .then(null, next);
 });

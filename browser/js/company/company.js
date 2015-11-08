@@ -1,7 +1,7 @@
 app.config(function($stateProvider) {
-  $stateProvider.state('company-page', {
-    url: '/companies/:id',
-    templateUrl: 'js/company/company-page.html',
+  $stateProvider.state('company', {
+    url: '/company/:id',
+    templateUrl: 'js/company/company.html',
     resolve: {
       company: ($stateParams, ProfilesFactory) => ProfilesFactory.getUserById($stateParams.id)
     },

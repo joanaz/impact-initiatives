@@ -51,8 +51,11 @@ app.config(function($stateProvider) {
     .state('dashboard.stories', {
       url: '/stories',
       templateUrl: 'js/dashboard/stories.html',
-      controller: ($scope) => {
-        // console.log($scope.company.stories)
+      controller: ($scope, ProfilesFactory) => {
+        $scope.publish = function(story) {
+          story.public = true;
+          ProfilesFactory.updateStory(story._id, story)
+        }
       }
     })
     .state('dashboard.suggestions', {

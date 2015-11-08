@@ -192,6 +192,7 @@ app.factory('ProfilesFactory', function($http) {
     getVCs: () => vcs,
     getUserById: (id) => $http.get('/api/users/' + id).then(res => res.data),
     getVC: (name) => vcs.filter(elem => elem.title === name)[0],
-    updateUser: (id, data) => $http.put('/api/users/' + id, data)
+    updateUser: (id, data) => $http.put('/api/users/' + id, data),
+    updateStory: (id, data) => $http.put('api/stories/' + id, data)
   }
 })

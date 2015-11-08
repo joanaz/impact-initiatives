@@ -103,7 +103,20 @@ router.param('id', function(req, res, next, id) {
     });
 });
 
-router.put('/:id', upload.single('upload'), function(req, res) {
+router.get('/:id', function(req, res, next) {
+  res.json(req.user);
+});
+
+router.put('/:id', function(req, res) {
+  _.merge(req.user, req.body);
+  req.user.save()
+    .then(function(user) {
+      res.json(user);
+    })
+    .then(null, next);
+});
+
+router.put('/:id/newStory', upload.single('upload'), function(req, res) {
   var story = new Story(req.body);
   story.user = req.user.id;
   story["image"] = req.file.path.substring(7);
@@ -118,8 +131,4 @@ router.put('/:id', upload.single('upload'), function(req, res) {
       })
       .then(null, next);
   });
-});
-
-router.get('/:id', function(req, res, next) {
-  res.json(req.user);
 });
