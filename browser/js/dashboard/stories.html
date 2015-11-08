@@ -1,0 +1,42 @@
+<div class="thumbnail" ng-repeat="story in user.stories" ng-if="story.rating>2">
+  <div class="caption row">
+    <div class="col-md-3">
+      <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">
+      <h5> {{story.author}}</h5>
+      <p>{{story.anthorDescription}}</p>
+    </div>
+    <div class="col-md-9">
+      <h4>{{story.title}}</h4>
+      <h3>
+      <span ng-repeat="n in [] | range:story.rating">
+        <i class="fa fa-star text-warning"></i>
+      </span>
+      <span ng-repeat="n in [] | range:5-story.rating">
+        <i class="fa fa-star-o text-warning"></i>
+      </span>
+      <small>{{story.date}}</small>
+      </h3>
+      <p align="center">
+        <img ng-src="{{story.image}}" ng-if="story.image" style="width:100%;">
+      </p>
+      <p>
+        <div class="embed-responsive embed-responsive-16by9" ng-if="story.video">
+          <iframe ng-src="{{story.video}}" allowfullscreen>
+          <p>Your browser does not support iframes.</p>
+          </iframe>
+        </div>
+      </p>
+      <p>{{story.text}}</p>
+      <p align="center">
+        <button class="btn btn-lg btn-default"><i class="fa fa-heart text-danger"></i> Publish to the public page</button>
+        <button class="btn btn-lg btn-default" ng-click="reply=true"><i class="fa fa-mail-reply text-success"></i> Reply</button>
+      </p>
+      <form ng-show="reply">
+        <div class="form-group">
+          <textarea class="form-control" rows="5" placeholder=""></textarea>
+        </div>
+        <button class="btn btn-normal">Send</button>
+      </form>
+    </div>
+  </div>
+</div>

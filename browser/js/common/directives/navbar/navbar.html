@@ -25,7 +25,7 @@
             <div ng-show="user" class="welcome">
                 <span dropdown on-toggle="toggled(open)">
                     <a href id="simple-dropdown" dropdown-toggle>
-                        Hi, {{ user.email }}! <span class="caret"></span>
+                        Hi, {{ user.name }}! <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="simple-dropdown">
                         <li ng-repeat="choice in dropdownItems" ng-show="user.role==choice.role || choice.role=='all'">

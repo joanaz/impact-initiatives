@@ -3,7 +3,7 @@ app.config(function($stateProvider) {
     url: '/companies/:id',
     templateUrl: 'js/company/company-page.html',
     resolve: {
-      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getUserById($stateParams.id)
     },
     controller: ($scope, $state, company) => {
       $scope.company = company

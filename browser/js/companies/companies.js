@@ -3,11 +3,11 @@ app.config(function($stateProvider) {
     url: '/companies',
     templateUrl: 'js/companies/companies.html',
     resolve: {
-    	companies: (ProfilesFactory) => ProfilesFactory.getAllCompanies()
+      companies: (ProfilesFactory) => ProfilesFactory.getCompanies()
     },
     controller: ($scope, companies) => {
       $scope.companies = companies
- 	  console.log($scope.companies);
+      console.log($scope.companies);
     }
   });
 });

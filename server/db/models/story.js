@@ -26,14 +26,14 @@ var schema = new mongoose.Schema({
     rating: {
         type: Number
     },
-    writer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    company: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
+    // writer: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'User'
+    // },
+    // company: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'User'
+    // },
 });
 
 mongoose.model('Story', schema);

@@ -8,7 +8,7 @@ app.config(function($stateProvider) {
     controller: ($scope, $state, ProfilesFactory, company) => {
       $scope.company = company
       $scope.story = {
-        date: "22-10-2015",
+        date: "Thurs Oct 22 2015",
         profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
         author: "Anonymous",
         anthorDescription: "",

@@ -1,5 +1,25 @@
-<div class="row">
-  <div class="col-sm-4 col-md-3" ng-repeat="metric in company.metrics">
-    <metric-thumbnail metric="metric"></metric-thumbnail>
+<div class="panel panel-default" >
+  <div class="panel-heading">
+    <span class="panel-title">Edit Metrics</span>
+  </div>
+  <div class="panel-body">
+    <div class="row form-group" ng-repeat="metric in user.metrics">
+      <div class="col-md-8">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="metric.value" ng-model="metric.value">
+          <span class="input-group-addon">{{metric.name}}</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon">Date:</span>
+          <input type="text" class="form-control" placeholder="metric.date" ng-model="metric.date">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-default">+</button>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-normal" ng-click="save()">Save</button>
   </div>
 </div>

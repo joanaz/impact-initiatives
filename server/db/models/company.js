@@ -20,9 +20,13 @@ var schema = new mongoose.Schema({
     website: {
         type: String
     },
-    stories : [{
+    stories: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Story'
+    }],
+    metrics: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Metric'
     }]
 });
 

@@ -5,7 +5,7 @@ module.exports = router;
 router.use('/members', require('./members'));
 router.use('/stories', require('./stories'));
 router.use('/users', require('./users'));
-router.use('/companies', require('./companies'))
+// router.use('/companies', require('./companies'))
 router.use('/contacts', require('./contacts'))
 
 // Make sure this is after all of
