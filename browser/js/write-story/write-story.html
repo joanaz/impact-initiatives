@@ -53,7 +53,7 @@
           <h3 class="panel-title">Tell us your {{company.title}} story</h3>
         </div>
         <div class="panel-body">
-          <form>
+          <form name="myForm">
             <div class="form-group clearfix">
               <label for="rate">How would you rate {{company.title}}?</label>
               <h2 id="rate">
@@ -78,12 +78,11 @@
             
             <div class="form-group">
               <label for="upload">Please upload an image or a video</label>
-              <input type="file" id="upload" ngf-select="" ng-model="imageFile" name="file">
-              
+              <input type="file" ng-file-select="onFileSelect($files)">
+
               
               <p class="help-block">A picture is worth a thousand words. Won't you share one with us?</p>
               
-            </div>
             <img ngf-src="imageFile">
             
             

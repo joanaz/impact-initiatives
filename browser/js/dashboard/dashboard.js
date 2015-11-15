@@ -69,6 +69,32 @@ app.config(function($stateProvider) {
     .state('dashboard.email', {
       url: '/email',
       templateUrl: 'js/dashboard/email.html',
+      controller: ($scope, ProfilesFactory) => {
+        $scope.uploadedFile = function(element) {
+          $scope.$apply(function($scope) {
+            $scope.files = element.files; 
+            console.log("hello" + $scope.files);        
+          });
+        }
+
+        $scope.send = function() {
+
+          var fd = new FormData();
+
+
+          var data = {
+            subject: $scope.subject,
+            html: $scope.html,
+          };
+
+          fd.append("data", JSON.stringify(data));
+
+          console.log($scope.files[0]);
+          fd.append("upload", $scope.files[0]);
+
+          ProfilesFactory.sendEmail(fd);
+        }
+      }
     })
     .state('dashboard.portfolio', {
       url: '/portfolio',

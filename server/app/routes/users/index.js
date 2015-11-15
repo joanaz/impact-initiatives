@@ -107,7 +107,7 @@ router.get('/:id', function(req, res, next) {
   res.json(req.user);
 });
 
-router.put('/:id', function(req, res) {
+router.put('/:id', function(req, res, next) {
   _.merge(req.user, req.body);
   req.user.save()
     .then(function(user) {
@@ -116,14 +116,13 @@ router.put('/:id', function(req, res) {
     .then(null, next);
 });
 
-router.put('/:id/newStory', upload.single('upload'), function(req, res) {
+router.put('/:id/newStory', upload.single('upload'), function(req, res, next) {
   var story = new Story(req.body);
   story.user = req.user.id;
-  story["image"] = req.file.path.substring(7);
+  //story["image"] = req.file.path.substring(7);
   story["date"] = new Date();
   story.save(function(err, savedStory) {
     if (err) return next(err);
-    res.status(201).json(savedStory);
   }).then(function() {
     req.user.stories.push(story.id);
     req.user.save().then(function(user) {

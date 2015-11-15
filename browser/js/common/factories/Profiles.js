@@ -193,6 +193,13 @@ app.factory('ProfilesFactory', function($http) {
     getUserById: (id) => $http.get('/api/users/' + id).then(res => res.data),
     getVC: (name) => vcs.filter(elem => elem.title === name)[0],
     updateUser: (id, data) => $http.put('/api/users/' + id, data),
-    updateStory: (id, data) => $http.put('api/stories/' + id, data)
+    updateStory: (id, data) => $http.put('api/users/' + id + '/newStory', data),
+    sendEmail: (fd) => $http.post('/api/contacts/send', fd, {
+      withCredentials : false,
+      headers : {
+        'Content-Type' : undefined
+      },
+      transformRequest : angular.identity
+    })
   }
 })
