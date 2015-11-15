@@ -120,13 +120,13 @@ var users = [{
   password: '123',
   role: 'investor'
 }, {
-  email: 'company',
+  email: 'city@light.com',
   password: '123',
-  role: 'company'
-}, {
-  email: 'VC',
-  password: '123',
-  role: 'VC'
+  role: 'VC',
+  image: "http://www.citylightcap.com/img/logo.png",
+  title: "City Light Capital",
+  text: "Invest forward, and further what's possible",
+  portfolio: ["2U", "ShotSpotter", "BrainRush"]
 }, {
   email: 'public',
   password: '123',
@@ -136,7 +136,7 @@ var users = [{
   password: 'admin',
   role: 'admin'
 }, {
-  email: 'ct',
+  email: 'tech@cornell.edu',
   password: '123',
   role: 'company',
   image: "https://pbs.twimg.com/profile_images/634014441462300672/2uKkwgQk.jpg",
@@ -146,7 +146,7 @@ var users = [{
   stories: stories,
   metrics: metrics,
 }, {
-  email: '2u',
+  email: 'admin@2u.com',
   password: '123',
   role: 'company',
   image: "/2U.png",

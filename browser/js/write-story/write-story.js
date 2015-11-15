@@ -1,9 +1,9 @@
 app.config(function($stateProvider) {
   $stateProvider.state('write-story', {
-    url: '/companies/:id/write',
+    url: '/company/:id/write',
     templateUrl: 'js/write-story/write-story.html',
     resolve: {
-      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getUserById($stateParams.id)
     },
     controller: ($scope, $state, ProfilesFactory, company) => {
       $scope.company = company
@@ -45,7 +45,7 @@ app.config(function($stateProvider) {
 
 app.config(function($stateProvider) {
   $stateProvider.state('page4', {
-    url: '/companies/:id/write/4',
+    url: '/company/:id/write/2',
     templateUrl: 'js/write-story/page4.html',
     resolve: {
       company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)

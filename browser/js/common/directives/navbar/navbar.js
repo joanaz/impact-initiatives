@@ -13,16 +13,18 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
         label: 'VCs',
         state: 'vcs'
       }, {
-        label: 'Members Only',
-        state: 'membersOnly',
+        label: 'My Dashboard',
+        state: 'dashboard.profile',
         auth: true
       }];
 
-      scope.dropdownItems = [{
-        label: 'Dashboard',
-        state: 'dashboard.profile',
-        role: 'all'
-      }]
+      scope.dropdownItems = [
+        // {
+        //   label: 'Dashboard',
+        //   state: 'dashboard.profile',
+        //   role: 'all'
+        // }
+      ]
 
       scope.user = null;
 

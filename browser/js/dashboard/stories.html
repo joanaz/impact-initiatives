@@ -1,4 +1,21 @@
-<div class="thumbnail" ng-repeat="story in user.stories" ng-if="story.rating>2">
+<ul class="nav nav-pills nav-justified">
+  <li class="active"><a data-toggle="pill" ng-click="changeView('all')">
+    All Stories</a></li>
+  <li><a data-toggle="pill" ng-click="changeView('positive')">
+    Testimonials</a></li>
+  <li><a data-toggle="pill" ng-click="changeView('negative')">
+    Suggestions</a></li>
+</ul>
+
+<hr>
+
+<order model="order" ng-repeat="order in user.pastOrderList" ng-show="currentStatus==order.orderStatus || currentStatus=='all'"></order>  
+
+
+
+
+
+<div class="thumbnail" ng-repeat="story in user.stories" ng-if="currentView=='positive' &&story.rating>2 || currentView=='negative' && story.rating<3 || currentView=='all'">
   <div class="caption row">
     <div class="col-md-3">
       <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">

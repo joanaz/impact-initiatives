@@ -18,7 +18,7 @@ app.config(function($stateProvider) {
           state: 'dashboard.profile',
           role: 'all'
         }, {
-          label: 'Send Emails',
+          label: 'Email Campaigns',
           state: 'dashboard.email',
           role: 'all'
         }, {
@@ -55,6 +55,10 @@ app.config(function($stateProvider) {
         $scope.publish = function(story) {
           story.public = true;
           ProfilesFactory.updateStory(story._id, story)
+        }
+
+        $scope.changeView = function(newView) {
+          $scope.currentView = newView;
         }
       }
     })
