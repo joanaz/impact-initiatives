@@ -6,13 +6,14 @@
     <div class="form-group">
       <button class="btn btn-default">Import contact list</button>
     </div>
+    <input type="file" name="upload" onchange="angular.element(this).scope().uploadedFile(this)" />
     <div class="form-group">
       <label>Subject</label>
-      <input type="text" class="form-control" placeholder="">
+      <input type="text" ng-model="subject" class="form-control" placeholder="">
     </div>
     <div class="form-group">
       <label>Text</label>
-      <textarea class="form-control" rows="25" placeholder=""></textarea>
+      <textarea ng-model="html" class="form-control" rows="25" placeholder=""></textarea>
     </div>
   </div>
   <div class="panel-footer">

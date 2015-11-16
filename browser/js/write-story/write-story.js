@@ -20,7 +20,7 @@ app.config(function($stateProvider) {
       var date = new Date();
       $scope.changeState = function() {
         console.log($scope.company._id);
-        console.log($scope.imageFile);
+        console.log("hello"+$scope.picFile);
         var data = {
           profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
           author: "Joanna Zhang",
@@ -32,12 +32,18 @@ app.config(function($stateProvider) {
         }
 
         $scope.company.stories.unshift(data)
-        ProfilesFactory.updateCompany($scope.company._id, data)
+        ProfilesFactory.updateStory($scope.company._id, data)
 
         $state.go('page4', {
           id: $scope.company._id
         })
       }
+
+      $scope.onFileSelect = function ($files) {
+        console.log("file select");
+        $scope.uploadProgress = 0;
+        $scope.selectedFile = $files;
+      };
     }
   })
 })

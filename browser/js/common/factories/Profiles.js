@@ -102,6 +102,13 @@ app.factory('ProfilesFactory', function($http) {
     getUserById: (id) => $http.get('/api/users/' + id).then(res => res.data),
     getCategories: () => $http.get('/api/categories').then(res => res.data),
     updateUser: (id, data) => $http.put('/api/users/' + id, data),
-    updateStory: (id, data) => $http.put('api/stories/' + id, data)
+    updateStory: (id, data) => $http.put('api/users/' + id + '/newStory', data),
+    sendEmail: (fd) => $http.post('/api/contacts/send', fd, {
+      withCredentials : false,
+      headers : {
+        'Content-Type' : undefined
+      },
+      transformRequest : angular.identity
+    })
   }
 })
