@@ -26,7 +26,7 @@ var schema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['admin', 'investor', 'company', 'VC', 'public']
+        enum: ['Admin', 'Investor', 'Company', 'VC', 'Community']
     },
     name: {
         type: String
@@ -34,9 +34,6 @@ var schema = new mongoose.Schema({
     image: {
         type: String
     },
-    // title: {
-    //     type: String
-    // },
     description: {
         type: String
     },
@@ -50,7 +47,15 @@ var schema = new mongoose.Schema({
     metrics: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Metric'
-    }]
+    }],
+    portfolio: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    }
 });
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations

@@ -5,14 +5,12 @@ var schema = new mongoose.Schema({
   name: {
     type: String
   },
-  data: [{
-    value: {
-      type: String
-    },
-    date: {
-      type: Date
-    }
-  }]
+  description: {
+    type: String
+  },
+  image: {
+    type: String
+  }
 });
 
-mongoose.model('Metric', schema);
+mongoose.model('Category', schema);

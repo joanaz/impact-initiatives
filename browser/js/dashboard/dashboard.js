@@ -11,8 +11,6 @@ app.config(function($stateProvider) {
       },
       controller: ($scope, user) => {
         $scope.user = user
-        console.log($scope.user)
-          // $scope.companies = ProfilesFactory.getAllCompanies()
         $scope.items = [{
           label: 'Profile',
           state: 'dashboard.profile',
@@ -24,10 +22,6 @@ app.config(function($stateProvider) {
         }, {
           label: 'Stories',
           state: 'dashboard.stories',
-          role: 'all'
-        }, {
-          label: 'Suggestions',
-          state: 'dashboard.suggestions',
           role: 'all'
         }, {
           label: 'Portfolio',
@@ -54,21 +48,15 @@ app.config(function($stateProvider) {
       controller: ($scope, ProfilesFactory) => {
         $scope.publish = function(story) {
           story.public = true;
+          console.log(story)
           ProfilesFactory.updateStory(story._id, story)
         }
-
-        $scope.changeView = function(newView) {
-          $scope.currentView = newView;
-        }
       }
-    })
-    .state('dashboard.suggestions', {
-      url: '/suggestions',
-      templateUrl: 'js/dashboard/suggestions.html',
     })
     .state('dashboard.email', {
       url: '/email',
       templateUrl: 'js/dashboard/email.html',
+      controller: (ProfilesFactory) => {}
     })
     .state('dashboard.portfolio', {
       url: '/portfolio',
@@ -81,7 +69,7 @@ app.config(function($stateProvider) {
     .state('dashboard.metrics', {
       url: '/metrics',
       templateUrl: 'js/dashboard/metrics.html',
-      controller: ($scope) => {
+      controller: () => {
         // $scope.company = ProfilesFactory.getCompany("2U")
         // console.log($scope.company)
       }

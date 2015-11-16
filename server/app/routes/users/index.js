@@ -89,11 +89,10 @@ router.post('/', function(req, res, next) {
 
 router.param('id', function(req, res, next, id) {
   User.findById(id)
-    .populate('stories metrics')
+    .populate('category stories metrics')
     .exec()
     .then(function(user) {
       if (!user) throw Error('Not Found');
-      console.log(user)
       req.user = user;
       next();
     })

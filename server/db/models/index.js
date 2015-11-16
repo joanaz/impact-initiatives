@@ -4,4 +4,4 @@
 require('./user');
 require('./story');
 require('./metric');
-// require('./company');
+require('./category');

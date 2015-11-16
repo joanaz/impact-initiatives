@@ -1,41 +1,39 @@
 <nav class="navbar navbar-static-top sbl-navbar">
     <!-- <div class="container "> -->
-        <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="home">
-                2ndBL
-                <!-- <logo></logo> -->
-            </a>
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">
+            2ndBL
+            <!-- <logo></logo> -->
+        </a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
+            <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
+        </li>
+    </ul>
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-search search-only">
+            <i class="search-icon glyphicon glyphicon-search"></i>
+            <input type="text" class="form-control search-query" placeholder="Search 2ndBL">
         </div>
-        <ul class="nav navbar-nav">
-            <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
-                <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
-            </li>
-        </ul>
-        <form class="navbar-form navbar-left" role="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search 2BL">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-            </div>
-        </form>
-        <div class="navbar-nav navbar-right">
-            <button ng-show="!user" ui-sref="login" class="btn btn-default navbar-btn">Login</button>
-            <button ng-show="!user" ui-sref="signup" class="btn btn-default navbar-btn">Sign up</button>
-            <div ng-show="user" class="welcome">
-                <span dropdown on-toggle="toggled(open)">
-                    <a href id="simple-dropdown" dropdown-toggle>
-                        Hi, {{ user.name }}! <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="simple-dropdown">
-                        <li ng-repeat="choice in dropdownItems" ng-show="user.role==choice.role || choice.role=='all'">
-                            <a ui-sref-active="active" ui-sref="{{choice.state}}">{{choice.label}}</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a ng-click="logout()">Logout</a></li>
-                    </ul>
-                </span>
-            </div>
+    </form>
+    <div class="navbar-nav navbar-right">
+        <button ng-show="!user" ui-sref="login" class="btn btn-default navbar-btn">Login</button>
+        <button ng-show="!user" ui-sref="signup" class="btn btn-default navbar-btn">Sign up</button>
+        <div ng-show="user" class="welcome">
+            <span dropdown on-toggle="toggled(open)">
+                <a href id="simple-dropdown" dropdown-toggle>
+                    Hi, {{ user.name }}! <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="simple-dropdown">
+                    <li ng-repeat="choice in dropdownItems" ng-show="user.role==choice.role || choice.role=='all'">
+                        <a ui-sref-active="active" ui-sref="{{choice.state}}">{{choice.label}}</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </span>
         </div>
+    </div>
     <!-- </div> -->
 </nav>

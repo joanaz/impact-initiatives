@@ -26,6 +26,9 @@ var schema = new mongoose.Schema({
     rating: {
         type: Number
     },
+    date: {
+        type: String
+    },
     public: {
         type: Boolean,
         default: false

@@ -25,9 +25,31 @@ var connectToDb = require('./server/db');
 var User = Promise.promisifyAll(mongoose.model('User'));
 var Story = Promise.promisifyAll(mongoose.model('Story'));
 var Metric = Promise.promisifyAll(mongoose.model('Metric'));
+var Category = Promise.promisifyAll(mongoose.model('Category'));
+
+var date1 = new Date(2015, 10, 23);
+var date2 = new Date(2015, 10, 22);
+
+var categories = [{
+  image: "http://www.houseintuscany.com/sub_category_copies/0000/0006/photo_education.jpg?1410270167",
+  name: "Education & Media",
+  description: "Ensure that the right technology is leveraged as fully as possible to deliver the best possible education to learners everywhere.",
+}, {
+  image: "http://www.metro.us/_internal/gxml!0/4dntvuhh2yeo4npyb3igdet73odaolf$fsf867qru2psg24byqk48w8os841zyh/shotSpotter.jpeg",
+  name: "Safety & Security",
+  description: "Ensure that the best safety and security platforms receive the funding and support they need.",
+}, {
+  image: "http://www.eurocontrol.int/sites/default/files/styles/colorbox-max/public/illustration/environmental-protection.jpg?itok=cIdgasYM",
+  name: "Energy & Environment",
+  description: "Conserving energy and natural resources is critical to the health and future of our planet.",
+}]
+
+categories = categories.map(function(datum) {
+  return new Category(datum)
+});
 
 var stories = [{
-  date: "Fri Oct 23 2015",
+  date: date1.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Hesed Kim",
   anthorDescription: "",
@@ -36,14 +58,14 @@ var stories = [{
   text: "Cornell Tech Multidisciplinary Student Team explore NYC by foot!",
   rating: 3
 }, {
-  date: "Fri Oct 23 2015",
+  date: date1.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Anonymous",
   anthorDescription: "",
   text: "This is a story, the best story ever told. ",
   rating: 3
 }, {
-  date: "Thurs Oct 22 2015",
+  date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Anonymous",
   anthorDescription: "",
@@ -52,7 +74,7 @@ var stories = [{
   text: "I love Cornell Tech because it is capable of giving me exactly the education I want: both challenging masters level computer science as well as top notch product design experience. The professors and students bring an unrelenting energy to their work. I wouldn't want to go anywhere else.",
   rating: 5
 }, {
-  date: "Thurs Oct 22 2015",
+  date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Ian Folau",
   anthorDescription: "",
@@ -61,7 +83,7 @@ var stories = [{
   video: "survey_results/R_3Ecp0C4JNb1Y0tV~MyCTStory.mp4",
   rating: 4
 }, {
-  date: "Thurs Oct 22 2015",
+  date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Claire Opila",
   anthorDescription: "",
@@ -70,7 +92,7 @@ var stories = [{
   text: "My name is Claire. I am a full time IS, CM student at Cornell Tech. I am currently doing a studio sprint. ",
   rating: 3
 }, {
-  date: "Thurs Oct 22 2015",
+  date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Anonymous",
   anthorDescription: "",
@@ -79,7 +101,7 @@ var stories = [{
   text: "",
   rating: 1
 }, {
-  date: "Thurs Oct 22 2015",
+  date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Carlos Fernandez",
   anthorDescription: "",
@@ -90,91 +112,142 @@ var stories = [{
 }];
 
 stories = stories.map(function(datum) {
-  return new Story(datum);
+  return new Story(datum)
 });
 
-var metrics = [{
-  value: "10,000+",
+var metrics_2u = [{
   name: "Students",
-  date: "Jun 04, 14"
+  data: [{
+    value: "10,000+",
+    date: "Jun 04, 14"
+  }]
 }, {
-  value: "83%",
   name: "Students graduated/still enrolled",
-  date: "Nov 04, 14"
+  data: [{
+    value: "83%",
+    date: "Nov 04, 14"
+  }]
 }, {
-  value: "20,000+",
   name: "Field Placements",
-  date: "Sep 18, 14"
+  data: [{
+    value: "20,000+",
+    date: "Sep 18, 14"
+  }]
 }, {
-  value: "92%",
   name: "Post-Grad Job Placement Rate",
-  date: "Dec 31, 13"
+  data: [{
+    value: "92%",
+    date: "Dec 31, 13"
+  }]
 }]
 
-metrics = metrics.map(function(datum) {
+var metrics_ct = [{
+  name: "Students",
+  data: [{
+    value: "150",
+    date: "Aug 20, 15"
+  }]
+}, {
+  name: "Startups created",
+  data: [{
+    value: "10",
+    date: "Aug 20, 15"
+  }]
+}, {
+  name: "Research projects",
+  data: [{
+    value: "40",
+    date: "Sep 18, 14"
+  }]
+}, {
+  name: "Countries students come from",
+  data: [{
+    value: "20",
+    date: "Dec 31, 13"
+  }]
+}]
+
+metrics_2u = metrics_2u.map(function(datum) {
   return new Metric(datum)
 })
+
+metrics_ct = metrics_ct.map(function(datum) {
+  return new Metric(datum)
+})
+
+var portfolio = [{
+  email: 'admin@2u.com',
+  password: '123',
+  role: 'Company',
+  image: "/2U.png",
+  name: "2U",
+  website: "http://2u.com",
+  description: "Increasing access to quality education by partnering with leading universities to offer degree programs online",
+  category: categories[0],
+  metrics: metrics_2u
+}, {
+  email: 'ss',
+  password: '123',
+  role: 'Company',
+  image: "http://citylightcap.com/img/heroes/shotspotter.jpg",
+  name: "ShotSpotter",
+  description: "This advanced Gunshot Location System pinpoints the location of gunfire in the real time and helps police reduce gun violence. ",
+  category: categories[1]
+
+}, {
+  email: 'et',
+  password: '123',
+  role: 'Company',
+  image: "http://www.citylightcap.com/img/heroes/enertrac.jpg",
+  name: "EnerTrac",
+  description: "A provider of game-changing tank delivery automation technology that optimizes fuel delivery and reduces carbon waste.",
+  category: categories[2]
+
+}]
+
+portfolio = portfolio.map(function(datum) {
+  return new User(datum)
+});
 
 var users = [{
   email: 'investor',
   password: '123',
-  role: 'investor'
+  role: 'Investor'
 }, {
   email: 'city@light.com',
   password: '123',
   role: 'VC',
   image: "http://www.citylightcap.com/img/logo.png",
-  title: "City Light Capital",
-  text: "Invest forward, and further what's possible",
-  portfolio: ["2U", "ShotSpotter", "BrainRush"]
+  name: "City Light Capital",
+  description: "Invest forward, and further what's possible",
+  portfolio: portfolio
 }, {
   email: 'public',
   password: '123',
-  role: 'public'
+  role: 'Community'
 }, {
   email: 'admin',
   password: 'admin',
-  role: 'admin'
+  role: 'Admin'
 }, {
   email: 'tech@cornell.edu',
   password: '123',
-  role: 'company',
+  role: 'Company',
   image: "https://pbs.twimg.com/profile_images/634014441462300672/2uKkwgQk.jpg",
   name: "Cornell Tech",
   description: "We develop pioneering leaders and technologies for the digital age.",
   website: "tech.cornell.edu",
   stories: stories,
-  metrics: metrics,
-}, {
-  email: 'admin@2u.com',
-  password: '123',
-  role: 'company',
-  image: "/2U.png",
-  name: "2U",
-  website: "http://2u.com",
-  description: "Increasing access to quality education by partnering with leading universities to offer degree programs online",
-}, {
-  email: 'ss',
-  password: '123',
-  role: 'company',
-  image: "http://citylightcap.com/img/heroes/shotspotter.jpg",
-  name: "ShotSpotter",
-  description: "This advanced Gunshot Location System pinpoints the location of gunfire in the real time and helps police reduce gun violence. "
-}, {
-  email: 'br',
-  password: '123',
-  role: 'company',
-  image: "http://larryferlazzo.edublogs.org/files/2013/08/brainrush-q5dkeb.jpg",
-  name: "BrainRush",
-  description: "Developing adaptive learning games that keep students focused and learning faster."
+  metrics: metrics_ct,
+  category: categories[0]
 }];
 
 users = users.map(function(datum) {
   return new User(datum);
 });
 
-var all = users.concat(stories, metrics);
-var models = [User, Story, Metric];
+var all = categories.concat(stories, metrics_2u, metrics_ct, portfolio, users);
+var models = [Category, Story, Metric, User];
 
 console.log('-removing-');
 async.each(models,
