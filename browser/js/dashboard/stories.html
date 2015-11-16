@@ -1,59 +1,22 @@
 <ul class="nav nav-pills nav-justified">
-  <li class="active"><a data-toggle="pill" ng-click="changeView('all')">
-    All Stories</a></li>
-  <li><a data-toggle="pill" ng-click="changeView('positive')">
-    Testimonials</a></li>
-  <li><a data-toggle="pill" ng-click="changeView('negative')">
-    Suggestions</a></li>
+  <li class="active"><a href="#testimonials" id="testimonials-tab" data-toggle="pill" aria-controls="testimonials" aria-expanded="true">Testimonials</a></li>
+  <li><a href="#suggestions" id="suggestions-tab" data-toggle="pill" aria-controls="suggestions">Suggestions</a></li>
+  <li><a href="#all" id="all-tab" data-toggle="pill" aria-controls="all">All Stories</a></li>
 </ul>
-
-<hr>
-
-<order model="order" ng-repeat="order in user.pastOrderList" ng-show="currentStatus==order.orderStatus || currentStatus=='all'"></order>  
-
-
-
-
-
-<div class="thumbnail" ng-repeat="story in user.stories" ng-if="currentView=='positive' &&story.rating>2 || currentView=='negative' && story.rating<3 || currentView=='all'">
-  <div class="caption row">
-    <div class="col-md-3">
-      <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">
-      <h5> {{story.author}}</h5>
-      <p>{{story.anthorDescription}}</p>
+<div id="myTabContent" class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="testimonials" aria-labelledBy="testimonials-tab">
+    <div ng-repeat="story in user.stories" ng-if="story.rating>2">
+      <user-story story="story" publish="publish(story)"></user-story>
     </div>
-    <div class="col-md-9">
-      <h4>{{story.title}}</h4>
-      <h3>
-      <span ng-repeat="n in [] | range:story.rating">
-        <i class="fa fa-star text-warning"></i>
-      </span>
-      <span ng-repeat="n in [] | range:5-story.rating">
-        <i class="fa fa-star-o text-warning"></i>
-      </span>
-      <small>{{story.date}}</small>
-      </h3>
-      <p align="center">
-        <img ng-src="{{story.image}}" ng-if="story.image" style="width:100%;">
-      </p>
-      <p>
-        <div class="embed-responsive embed-responsive-16by9" ng-if="story.video">
-          <iframe ng-src="{{story.video}}" allowfullscreen>
-          <p>Your browser does not support iframes.</p>
-          </iframe>
-        </div>
-      </p>
-      <p>{{story.text}}</p>
-      <p align="center">
-        <button class="btn btn-lg btn-default" ng-click="publish(story)"><i class="fa fa-heart text-danger"></i> Publish</button>
-        <button class="btn btn-lg btn-default" ng-click="reply=true"><i class="fa fa-mail-reply text-success"></i> Reply</button>
-      </p>
-      <form ng-show="reply">
-        <div class="form-group">
-          <textarea class="form-control" rows="5" placeholder=""></textarea>
-        </div>
-        <button class="btn btn-normal">Send</button>
-      </form>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="suggestions" aria-labelledBy="suggestions-tab">
+    <div ng-repeat="story in user.stories" ng-if="story.rating<3">
+      <user-story story="story"></user-story>
+    </div>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="all" aria-labelledBy="all-tab">
+    <div ng-repeat="story in user.stories">
+      <user-story story="story"></user-story>
     </div>
   </div>
 </div>

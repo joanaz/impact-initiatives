@@ -1,59 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <base href="/" />
-        <title>2ndBL</title>
-        <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css" />
-        <link rel="stylesheet" type="text/css" href="/style.css" />
-        <script src="/lodash/index.js"></script>
-        <script src="/angular/angular.js"></script>
-        <script src="/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-        <script src="/socket.io-client/socket.io.js"></script>
-        <script src="/main.js"></script>
-        <script src="/ng-file-upload/dist/ng-file-upload.js"></script>
-        <script src="/ng-file-upload/dist/ng-file-upload-shim.js"></script>
-    </head>
-    <body ng-app="2BL">
-        <div id="fb-root"></div>
-        
-         <script>(function(d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) return;
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1498322677132667";
-         fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-         
-         window.fbAsyncInit = function(){  // this gets triggered when FB object gets initialized
-             // console.log("FB Object initiated");
-             FB.XFBML.parse(); // now we can safely call parse method
-        };
-        </script>
-        
-        <script>window.twttr = (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-          if (d.getElementById(id)) return t;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://platform.twitter.com/widgets.js";
-          fjs.parentNode.insertBefore(js, fjs);
-         
-          t._e = [];
-          t.ready = function(f) {
-            t._e.push(f);
-          };
-         
-          return t;
-        }(document, "script", "twitter-wjs"));
-        // twttr.widgets.load();
-        </script>
-      
-    <navbar></navbar>
-    <div id="main" ui-view></div>
-    <my-footer></my-footer>
-   
+  <head>
+    <base href="/" />
+    <title>2ndBL</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/bootflat/css/site.min.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script src="/lodash/index.js"></script>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/socket.io-client/socket.io.js"></script>
+    <script src="/ng-file-upload/dist/ng-file-upload.js"></script>
+    <script src="/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+    <script src="/main.js"></script>
+  </head>
+  <body ng-app="2BL">
+    <div id="fb-root"></div>
+    
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1498322677132667";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+    window.fbAsyncInit = function(){  // this gets triggered when FB object gets initialized
+    // console.log("FB Object initiated");
+    FB.XFBML.parse(); // now we can safely call parse method
+    };
+    </script>
+    
+    <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    
+    t._e = [];
+    t.ready = function(f) {
+    t._e.push(f);
+    };
+    
+    return t;
+    }(document, "script", "twitter-wjs"));
+    // twttr.widgets.load();
+    </script>
+    
+  <navbar></navbar>
+  <div id="main" ui-view></div>
+  <my-footer></my-footer>
 </body>
 </html>

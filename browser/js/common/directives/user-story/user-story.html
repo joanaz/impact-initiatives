@@ -1,0 +1,54 @@
+<div class="thumbnail">
+  <div class="caption row">
+    <div class="col-md-3">
+      <p align="center">
+        <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">
+      </p>
+      <h5 align="center"> {{story.author}}</h5>
+      <p>{{story.anthorDescription}}</p>
+      <p align="center" class="text-muted"> {{story.date}}</p>
+      <h3 align="center">
+      <span ng-repeat="n in [] | range:story.rating">
+        <i class="fa fa-star text-warning"></i>
+      </span>
+      <span ng-repeat="n in [] | range:5-story.rating">
+        <i class="fa fa-star-o text-warning"></i>
+      </span></h3>
+    </div>
+    <div class="col-md-9">
+      <h4>{{story.title}}</h4>
+      <p align="center">
+        <img class="img-rounded img-responsive" ng-src="{{story.image}}" ng-if="story.image" style="width:100%;">
+      </p>
+      <p>
+        <div class="embed-responsive embed-responsive-16by9" ng-if="story.video">
+          <iframe ng-src="{{story.video}}" allowfullscreen>
+          <p>Your browser does not support iframes.</p>
+          </iframe>
+        </div>
+      </p>
+      <p>{{story.text}}</p>
+      <p align="center">
+        <button class="btn btn-sm btn-danger" ng-click="publish({story:story})"><i class="fa fa-heart"></i> Publish</button>
+        <button class="btn btn-sm btn-info" ng-click="comment=true"><i class="fa fa-commenting"></i> Comment</button>
+        <button class="btn btn-sm btn-warning" ng-click="reply=true"><i class="fa fa-mail-reply"></i> Reply</button>
+      </p>
+      <p>
+        <form ng-show="comment">
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder=""></textarea>
+          </div>
+          <button class="btn btn-sm btn-info">Submit</button>
+        </form>
+      </p>
+      <p>
+        <form ng-show="reply">
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder=""></textarea>
+          </div>
+          <button class="btn btn-sm btn-warning">Send</button>
+        </form>
+      </p>
+    </div>
+  </div>
+</div>

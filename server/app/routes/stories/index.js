@@ -209,10 +209,11 @@ router.get('/:id', function(req, res, next) {
   res.json(req.story);
 });
 
-router.put('/:id', function(req, res) {
+router.put('/:id', function(req, res, next) {
   _.merge(req.story, req.body);
   req.story.save()
     .then(function(story) {
+      console.log(story)
       res.json(story);
     })
     .then(null, next);
