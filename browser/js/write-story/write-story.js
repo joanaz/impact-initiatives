@@ -18,9 +18,18 @@ app.config(function($stateProvider) {
       };
 
       var date = new Date();
+      
+      $scope.uploadedFile = function(element) {
+        $scope.$apply(function($scope) {
+          $scope.files = element.files; 
+        });
+      }
+
       $scope.changeState = function() {
         console.log($scope.company._id);
-        console.log("hello"+$scope.picFile);
+
+        var fd = new FormData();
+
         var data = {
           profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
           author: "Joanna Zhang",
@@ -28,22 +37,21 @@ app.config(function($stateProvider) {
           date: date.toDateString(),
           rating: $scope.rating,
           text: $scope.newStory,
-          image: $scope.imageFile
         }
 
+        fd.append("data", JSON.stringify(data));
+
+        fd.append("upload", $scope.files[0]);
+
         $scope.company.stories.unshift(data)
-        ProfilesFactory.updateStory($scope.company._id, data)
+        console.log($scope.files[0]);
+        ProfilesFactory.updateStory($scope.company._id, fd)
 
         $state.go('page4', {
           id: $scope.company._id
         })
       }
 
-      $scope.onFileSelect = function ($files) {
-        console.log("file select");
-        $scope.uploadProgress = 0;
-        $scope.selectedFile = $files;
-      };
     }
   })
 })

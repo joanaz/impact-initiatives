@@ -78,7 +78,7 @@
             
             <div class="form-group">
               <label for="upload">Please upload an image or a video</label>
-              <input type="file" ng-file-select="onFileSelect($files)">
+              <input type="file" name="upload" onchange="angular.element(this).scope().uploadedFile(this)">
 
               
               <p class="help-block">A picture is worth a thousand words. Won't you share one with us?</p>
