@@ -6,11 +6,12 @@ my-footer {
   height: 60px;
 
   #footer {
-    background-color: darken(#F5F5F5, 10%);
+    background-color: darkgrey;
   }
 
   .footer-text {
     margin: 5px 0;
+    color: white;
   }
 
   .left {

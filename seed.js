@@ -56,8 +56,8 @@ var stories = [{
   image: "survey_results/R_2OYJpC3ag4S9uox~IMG_2962.jpg",
   title: "",
   text: "Cornell Tech Multidisciplinary Student Team explore NYC by foot!",
-  rating: 3,
-  score: 0
+  score: 0,
+  rating: 5
 }, {
   date: date1.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -84,7 +84,7 @@ var stories = [{
   title: "",
   text: "This is how much I love cookies from Cornell Tech",
   video: "survey_results/R_3Ecp0C4JNb1Y0tV~MyCTStory.mp4",
-  rating: 4,
+  rating: 5,
   score: 0.784476
 }, {
   date: date2.toDateString(),
@@ -94,7 +94,7 @@ var stories = [{
   title: "",
   image: "survey_results/R_27dOaVct557R1Wy~IMG_4717.jpg",
   text: "My name is Claire. I am a full time IS, CM student at Cornell Tech. I am currently doing a studio sprint. ",
-  rating: 3,
+  rating: 4,
   score: -0.00540552
 }, {
   date: date2.toDateString(),
@@ -104,7 +104,7 @@ var stories = [{
   title: "",
   image: "survey_results/R_2sbYVGnvveKIWrj~IMG_2009.jpg",
   text: "",
-  rating: 1,
+  rating: 2,
   score: 0
 }, {
   date: date2.toDateString(),
@@ -114,7 +114,7 @@ var stories = [{
   title: "",
   image: "survey_results/R_807zMYzZzyNRW01~image.jpg",
   text: "",
-  rating: 1,
+  rating: 2,
   score: 0
 }];
 
@@ -246,7 +246,7 @@ var users = [{
   email: 'tech@cornell.edu',
   password: '123',
   role: 'Company',
-  image: "https://pbs.twimg.com/profile_images/634014441462300672/2uKkwgQk.jpg",
+  image: "http://flywallvideo2.s3.amazonaws.com/Cornell-Tech.jpg",
   name: "Cornell Tech",
   description: "We develop pioneering leaders and technologies for the digital age.",
   website: "tech.cornell.edu",

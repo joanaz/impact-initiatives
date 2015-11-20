@@ -58,7 +58,7 @@ app.config(function($stateProvider) {
       templateUrl: 'js/dashboard/email.html',
       controller: ($scope, ProfilesFactory) => {
         $scope.uploadedFile = function(element) {
-          $scope.$apply(function($scope) {
+          $scope.$apply(function() {
             $scope.files = element.files;
           });
         }

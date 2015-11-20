@@ -14,15 +14,14 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 var urljoin = require('url-join');
 
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(JSON.parse(xmlHttp.responseText));
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
+function httpGetAsync(theUrl, callback) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+      callback(JSON.parse(xmlHttp.responseText));
+  }
+  xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+  xmlHttp.send(null);
 }
 
 // get all user (optionally sort by parameters)
@@ -137,11 +136,11 @@ router.put('/:id/newStory', upload.single('upload'), function(req, res, next) {
   console.log(req.body);
   console.log(JSON.parse(req.body.data));
   var story = new Story(JSON.parse(req.body.data));
-  story.user = req.user.id;
+  story.user = req.user._id;
   if (req.file != null) {
-    story["image"] = req.file.path.substring(7);    
+    story.image = req.file.path.substring(7);
   }
-  story["date"] = new Date();
+  story.date = new Date();
   var fullUrl = urljoin('http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment?apikey=85a98a7d4f237f6515c10162ccf221292680e804&outputMode=json&text=', story.text);
   console.log(123);
   httpGetAsync(fullUrl, function(sent) {
@@ -151,14 +150,14 @@ router.put('/:id/newStory', upload.single('upload'), function(req, res, next) {
     } else {
       story.score = 0;
     }
-    story.save(function(err, savedStory) {
-      if (err) return next(err);
-    }).then(function() {
-      req.user.stories.push(story.id);
-      req.user.save().then(function(user) {
-          res.json(user);
-        })
-        .then(null, next);
-    });
+    story.save()
+      .then(function(story) {
+        req.user.stories.push(story._id);
+        return req.user.save()
+      })
+      .then(function(user) {
+        res.json(user);
+      })
+      .then(null, next);
   })
 });

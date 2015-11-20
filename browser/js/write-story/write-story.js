@@ -27,7 +27,7 @@ app.config(function($stateProvider) {
       };
 
       $scope.uploadedFile = function(element) {
-        $scope.$apply(function($scope) {
+        $scope.$apply(function() {
           $scope.files = element.files;
         });
       }
@@ -51,25 +51,24 @@ app.config(function($stateProvider) {
           fd.append("upload", $scope.files[0]);
         }
 
-        $scope.company.stories.unshift(data)
-        ProfilesFactory.updateStory($scope.company._id, fd)
+        $scope.company.stories.push(data)
 
-        $state.go('page4', {
-          id: $scope.company._id
+        ProfilesFactory.updateStory($scope.company._id, fd).then(function() {
+          $state.go('write-share', {
+            id: $scope.company._id
+          })
         })
       }
-
     }
   })
 })
 
-
 app.config(function($stateProvider) {
-  $stateProvider.state('page4', {
-    url: '/company/:id/write/2',
+  $stateProvider.state('write-share', {
+    url: '/company/:id/write/share',
     templateUrl: 'js/write-story/page4.html',
     resolve: {
-      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getCompany($stateParams.id)
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getUserById($stateParams.id)
     },
     controller: ($scope, $state, company) => {
       $scope.company = company
