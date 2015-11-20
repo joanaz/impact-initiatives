@@ -1,0 +1,37 @@
+<div class="panel" ng-class="{0:'panel-danger',1:'panel-primary', 2:'panel-info', 3:'panel-success', 4:'panel-warning'}[ranNum]">
+  <div class="panel-heading">
+    <span class="panel-title"><b># {{metric.name}}</b></span>
+  </div>
+  <div class="panel-body">
+    <div class="row form-group">
+      <div class="col-md-12">
+        <div class="input-group">
+          <span class="input-group-addon">Latest value:</span>
+          <input type="text" class="form-control" ng-model="newData.value">
+          <span class="input-group-addon">on</span>
+          <input type="date" class="form-control"  ng-model="newData.date"/>
+          <!-- <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span> -->
+          <!-- <input type="text" class="form-control" placeholder="metric.data[metric.data.length - 1].date | date:'mediumDate'" ng-model="metrics[metric.name].date"> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Value</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="datum in metric.data | orderBy: 'date' : true">
+        <td>{{$index+1}}</td>
+        <td>{{datum.value}}</td>
+        <td>{{datum.date | date:'mediumDate'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -7,6 +7,7 @@ router.use('/stories', require('./stories'));
 router.use('/users', require('./users'));
 router.use('/categories', require('./categories'))
 router.use('/contacts', require('./contacts'))
+router.use('/metrics', require('./metrics'))
 
 // Make sure this is after all of
 // the registered routes!

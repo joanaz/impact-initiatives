@@ -116,6 +116,7 @@ app.factory('ProfilesFactory', function($http) {
         'Content-Type': undefined
       },
       transformRequest: angular.identity
-    })
+    }),
+    appendMetric: (id, data) => $http.put('api/metrics/' + id, data)
   }
 })

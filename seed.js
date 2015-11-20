@@ -27,8 +27,8 @@ var Story = Promise.promisifyAll(mongoose.model('Story'));
 var Metric = Promise.promisifyAll(mongoose.model('Metric'));
 var Category = Promise.promisifyAll(mongoose.model('Category'));
 
-var date1 = new Date(2015, 10, 23);
-var date2 = new Date(2015, 10, 22);
+var date1 = new Date(2015, 9, 22);
+var date2 = new Date(2015, 9, 23);
 
 var categories = [{
   image: "http://www.houseintuscany.com/sub_category_copies/0000/0006/photo_education.jpg?1410270167",
@@ -67,7 +67,7 @@ var stories = [{
   rating: 3,
   score: 0.903895
 }, {
-  date: date2.toDateString(),
+  date: date1.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Anonymous",
   anthorDescription: "",
@@ -224,9 +224,9 @@ var users = [{
   email: 'joanna@zhang.com',
   name: 'Joanna Zhang',
   image: 'https://scontent-iad3-1.xx.fbcdn.net/hprofile-prn2/v/t1.0-1/c0.33.200.200/1888611_10151887945811975_1524207058_n.jpg?oh=f82a6974893531749b63bff6f384ecfb&oe=56F9534F',
-  role: 'Investor',
+  role: 'Community',
   password: '123'
-},{
+}, {
   email: 'city@light.com',
   password: '123',
   role: 'VC',
@@ -250,6 +250,7 @@ var users = [{
   name: "Cornell Tech",
   description: "We develop pioneering leaders and technologies for the digital age.",
   website: "tech.cornell.edu",
+  details: "Cornell Tech focuses on creating pioneering leaders and technologies for the digital age, through research, technology commercialization, and graduate-level education at the professional masters, doctoral and postdoctoral levels.",
   stories: stories,
   metrics: metrics_ct,
   category: categories[0]

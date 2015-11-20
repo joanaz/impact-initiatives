@@ -1,26 +1,34 @@
 <div class="top-padding container">
-<h3 align="center">Thank you!</h3>
+  <h3 align="center">Thank you!</h3>
   <div class="panel panel-default">
     <!-- <div class="panel-heading"> -->
-      <!-- <h3 class="panel-title"> -->
-      <!-- <h3>Thank you!</h3> -->
+    <!-- <h3 class="panel-title"> -->
+    <!-- <h3>Thank you!</h3> -->
     <!-- </div> -->
-    <div class="panel-body">
-      <p>You're awesome! </p>
-      <p> Would you like to share your story with friends?</p>
-      <i class="fa fa-5x fa-facebook-square"></i>
-      <i class="fa fa-5x fa-twitter-square"></i>
-      <i class="fa fa-5x fa-instagram"></i>
-      
+    <div class="panel-body" align="center">
+      <p class="lead">You're awesome! </p>
+      <label> Would you like to share your story with your friends?</label>
+      <p>
+        <i class="fa fa-5x fa-facebook-square"></i>
+        <i class="fa fa-5x fa-twitter-square"></i>
+        <i class="fa fa-5x fa-instagram"></i>
+      </p>
+      <br>
+      <p>
       <div class="checkbox">
-        <label><input type="checkbox" value="" checked>Allow {{company.title}} to share with their social network.</label>
+        <div class="icheckbox_flat checked" style="position: relative;"><input type="checkbox" id="flat-checkbox-2" checked="" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+        <label for="flat-checkbox-2" class="">Allow {{company.name}} to share with their social network.</label>
       </div>
+    </p>
+      <!-- <div class="checkbox">
+        <label><input type="checkbox" value="" checked>Allow {{company.name}} to share with their social network.</label>
+      </div> -->
       <br>
       <div class="form-group">
         <label for="email">Would you like to invite others to write a story?</label>
         <input type="text" class="form-control" id="email" placeholder="johnsmith@gmail.com">
       </div>
-      <p align="center"><button class="btn btn-primary" ng-click="changeState()">Close</button></p>
+      <p align="center"><button class="btn btn-primary" ng-click="changeState()">Send & Close</button></p>
     </div>
   </div>
 </div>

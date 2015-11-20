@@ -73,7 +73,7 @@ app.config(function($stateProvider) {
     controller: ($scope, $state, company) => {
       $scope.company = company
       $scope.changeState = function() {
-        $state.go('company-page', {
+        $state.go('company', {
           id: $scope.company._id
         })
       }

@@ -37,6 +37,9 @@ var schema = new mongoose.Schema({
     description: {
         type: String
     },
+    details: {
+        type: String
+    },
     website: {
         type: String
     },

@@ -18,7 +18,7 @@ app.config(function($stateProvider) {
         }, {
           label: 'Email Campaigns',
           state: 'dashboard.email',
-          role: 'all'
+          role: 'Company'
         }, {
           label: 'Stories',
           state: 'dashboard.stories',
@@ -94,7 +94,25 @@ app.config(function($stateProvider) {
     .state('dashboard.metrics', {
       url: '/metrics',
       templateUrl: 'js/dashboard/metrics.html',
-      controller: () => {
+      controller: ($scope, ProfilesFactory) => {
+
+
+        $scope.metrics = {}
+
+        $scope.save = function() {
+          console.log($scope.metrics)
+          for (var key in $scope.metrics) {
+
+            // console.log($scope.newDate)
+
+            ProfilesFactory.appendMetric(key, $scope.metrics[key])
+              .then(res => ProfilesFactory.getUserById($scope.user._id))
+              .then(user => $scope.user = user)
+          }
+        }
+
+        // $scope.data = $scope.user.metrics.data[$scope.metric.data.length - 1]
+
         // $scope.company = ProfilesFactory.getCompany("2U")
         // console.log($scope.company)
       }

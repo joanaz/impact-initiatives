@@ -5,17 +5,17 @@
 </ul>
 <div id="myTabContent" class="tab-content">
   <div role="tabpanel" class="tab-pane fade in active" id="testimonials" aria-labelledBy="testimonials-tab">
-    <div ng-repeat="story in user.stories" ng-if="story.rating>2">
+    <div ng-repeat="story in user.stories | orderBy: '-date'" ng-if="story.rating>2">
       <user-story story="story" publish="publish(story)"></user-story>
     </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="suggestions" aria-labelledBy="suggestions-tab">
-    <div ng-repeat="story in user.stories" ng-if="story.rating<3">
+    <div ng-repeat="story in user.stories | orderBy: '-date'" ng-if="story.rating<3">
       <user-story story="story"></user-story>
     </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="all" aria-labelledBy="all-tab">
-    <div ng-repeat="story in user.stories">
+    <div ng-repeat="story in user.stories | orderBy: '-date'">
       <user-story story="story"></user-story>
     </div>
   </div>
