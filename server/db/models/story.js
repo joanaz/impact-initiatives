@@ -24,13 +24,15 @@ var schema = new mongoose.Schema({
         type: String
     },
     rating: {
-        type: Number
+        type: Number,
+        default: 0
     },
     date: {
         type: Date
     },
     score: {
-        type: Number
+        type: Number,
+        default: 0
     },
     public: {
         type: Boolean,

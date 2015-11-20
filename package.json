@@ -72,6 +72,7 @@
     "supertest": "^0.15.0",
     "url-join": "0.0.1",
     "util": "~0.10.3",
-    "uuid": "~2.0.1"
+    "uuid": "~2.0.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
