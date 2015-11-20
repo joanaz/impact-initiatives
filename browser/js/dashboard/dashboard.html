@@ -4,21 +4,34 @@
       <div class="col-md-3">
         <div class="list-group">
           <a class="list-group-item thumbnail" ui-sref="company({id:user._id})">
-          
+            
             <img class="img-rounded" src="{{user.image}}" height="250" width="250">
             <div class="caption">
-              <center><h3>{{user.name}}</h3></center>
-              <!-- <center><span>{{user.email}}</span></center> -->
-              <center><h5>
-              <span class="glyphicon glyphicon-star"></span>
-              {{user.role}}</h5>
-              </center>
+              <div align="center"><h3>{{user.name}}</h3>
+                <!-- <center><span>{{user.email}}</span></center> -->
+                <h5>
+                <span class="glyphicon glyphicon-star"></span>
+                {{user.role}}</h5>
+              </div>
             </div>
           </a>
-          
-          
+          <div class="list-group-item list-group-item-warning" style="color:white;">
+            <!-- <button class="btn btn-block btn-warning"> -->
+            <h5>
+            <p>           
+              <span ng-repeat="n in [] | range:averageRating">
+                <i class="fa fa-star text-primary"></i>
+              </span>
+              <span ng-repeat="n in [] | range:5-averageRating">
+                <i class="fa fa-star-o text-primary"></i>
+              </span>
+            </p>
+            <p>   {{user.stories.length}} total stories</p>
+            <p>{{averageSentiment}}% positive sentiment </p>
+            </h5>
+            <!-- </button> -->
+          </div>
           <a class="list-group-item" ui-sref-active="active" ui-sref="{{item.state}}" ng-show="user.role==item.role || item.role=='all'" ng-repeat="item in items">{{item.label}}</a>
-          
         </div>
       </div>
       <div class="col-md-9">

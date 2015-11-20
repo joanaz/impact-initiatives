@@ -1,6 +1,7 @@
 <div class="thumbnail">
   <div class="caption row">
     <div class="col-md-3">
+    <div align="center">
       <p align="center">
         <img class="media-object img-circle" ng-src="{{story.profile}}" style="height:100px;">
       </p>
@@ -13,8 +14,13 @@
       </span>
       <span ng-repeat="n in [] | range:5-story.rating">
         <i class="fa fa-star-o text-primary"></i>
-      </span></h3>
+      </span>
+      </h3>
+      <!-- <h3>core:</h3> -->
+      <!-- <p> score:</p> -->
+      <h3><button class="btn" ng-class="story.score>0?'btn-success':(story.score==0?'btn-normal':'btn-danger')">Sentiment<br>{{story.score}}</button></h3>
     </div>
+  </div>
     <div class="col-md-9">
       <h4>{{story.title}}</h4>
       <p align="center">
