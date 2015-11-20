@@ -56,14 +56,16 @@ var stories = [{
   image: "survey_results/R_2OYJpC3ag4S9uox~IMG_2962.jpg",
   title: "",
   text: "Cornell Tech Multidisciplinary Student Team explore NYC by foot!",
-  rating: 3
+  rating: 3,
+  score: 0
 }, {
   date: date1.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
   author: "Anonymous",
   anthorDescription: "",
   text: "This is a story, the best story ever told. ",
-  rating: 3
+  rating: 3,
+  score: 0.903895
 }, {
   date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -72,7 +74,8 @@ var stories = [{
   image: "",
   title: "",
   text: "I love Cornell Tech because it is capable of giving me exactly the education I want: both challenging masters level computer science as well as top notch product design experience. The professors and students bring an unrelenting energy to their work. I wouldn't want to go anywhere else.",
-  rating: 5
+  rating: 5,
+  score: 0.365313
 }, {
   date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -81,7 +84,8 @@ var stories = [{
   title: "",
   text: "This is how much I love cookies from Cornell Tech",
   video: "survey_results/R_3Ecp0C4JNb1Y0tV~MyCTStory.mp4",
-  rating: 4
+  rating: 4,
+  score: 0.784476
 }, {
   date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -90,7 +94,8 @@ var stories = [{
   title: "",
   image: "survey_results/R_27dOaVct557R1Wy~IMG_4717.jpg",
   text: "My name is Claire. I am a full time IS, CM student at Cornell Tech. I am currently doing a studio sprint. ",
-  rating: 3
+  rating: 3,
+  score: -0.00540552
 }, {
   date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -99,7 +104,8 @@ var stories = [{
   title: "",
   image: "survey_results/R_2sbYVGnvveKIWrj~IMG_2009.jpg",
   text: "",
-  rating: 1
+  rating: 1,
+  score: 0
 }, {
   date: date2.toDateString(),
   profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
@@ -108,7 +114,8 @@ var stories = [{
   title: "",
   image: "survey_results/R_807zMYzZzyNRW01~image.jpg",
   text: "",
-  rating: 1
+  rating: 1,
+  score: 0
 }];
 
 stories = stories.map(function(datum) {

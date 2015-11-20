@@ -29,6 +29,9 @@ var schema = new mongoose.Schema({
     date: {
         type: Date
     },
+    score: {
+        type: Number
+    },
     public: {
         type: Boolean,
         default: false

@@ -146,14 +146,19 @@ router.put('/:id/newStory', upload.single('upload'), function(req, res, next) {
   console.log(123);
   httpGetAsync(fullUrl, function(sent) {
     console.log(sent)
+    if (sent.docSentiment != null && sent.docSentiment.score != null) {
+      story.score = parseFloat(sent.docSentiment.score);
+    } else {
+      story.score = 0;
+    }
+    story.save(function(err, savedStory) {
+      if (err) return next(err);
+    }).then(function() {
+      req.user.stories.push(story.id);
+      req.user.save().then(function(user) {
+          res.json(user);
+        })
+        .then(null, next);
+    });
   })
-  story.save(function(err, savedStory) {
-    if (err) return next(err);
-  }).then(function() {
-    req.user.stories.push(story.id);
-    req.user.save().then(function(user) {
-        res.json(user);
-      })
-      .then(null, next);
-  });
 });

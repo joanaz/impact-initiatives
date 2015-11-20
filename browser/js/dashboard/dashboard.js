@@ -74,7 +74,7 @@ app.config(function($stateProvider) {
           };
 
           fd.append("data", JSON.stringify(data));
-
+          console.log(123);
           console.log($scope.files[0]);
           fd.append("upload", $scope.files[0]);
 
