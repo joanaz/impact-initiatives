@@ -10,6 +10,21 @@ var Story = mongoose.model('Story');
 var multiparty = require('multiparty');
 var multer = require('multer');
 
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+var urljoin = require('url-join');
+
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(JSON.parse(xmlHttp.responseText));
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
 // get all user (optionally sort by parameters)
 router.get('/', function(req, res, next) {
   User.find(req.query).exec()
@@ -123,8 +138,15 @@ router.put('/:id/newStory', upload.single('upload'), function(req, res, next) {
   console.log(JSON.parse(req.body.data));
   var story = new Story(JSON.parse(req.body.data));
   story.user = req.user.id;
-  story["image"] = req.file.path.substring(7);
+  if (req.file != null) {
+    story["image"] = req.file.path.substring(7);    
+  }
   story["date"] = new Date();
+  var fullUrl = urljoin('http://gateway-a.watsonplatform.net/calls/text/TextGetTextSentiment?apikey=85a98a7d4f237f6515c10162ccf221292680e804&outputMode=json&text=', story.text);
+  console.log(123);
+  httpGetAsync(fullUrl, function(sent) {
+    console.log(sent)
+  })
   story.save(function(err, savedStory) {
     if (err) return next(err);
   }).then(function() {

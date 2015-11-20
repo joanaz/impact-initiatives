@@ -18,10 +18,15 @@ app.config(function($stateProvider) {
       };
 
       var date = new Date();
-      
+
+      $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
+      };
+
       $scope.uploadedFile = function(element) {
         $scope.$apply(function($scope) {
-          $scope.files = element.files; 
+          $scope.files = element.files;
         });
       }
 
@@ -41,10 +46,11 @@ app.config(function($stateProvider) {
 
         fd.append("data", JSON.stringify(data));
 
-        fd.append("upload", $scope.files[0]);
+        if ($scope.files != null && $scope.files.length > 0) {
+          fd.append("upload", $scope.files[0]);
+        }
 
         $scope.company.stories.unshift(data)
-        console.log($scope.files[0]);
         ProfilesFactory.updateStory($scope.company._id, fd)
 
         $state.go('page4', {

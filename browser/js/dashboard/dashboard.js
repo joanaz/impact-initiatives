@@ -60,10 +60,8 @@ app.config(function($stateProvider) {
         $scope.uploadedFile = function(element) {
           $scope.$apply(function($scope) {
             $scope.files = element.files;
-            console.log("hello" + $scope.files);
           });
         }
-
         $scope.send = function() {
 
           var fd = new FormData();
@@ -72,6 +70,7 @@ app.config(function($stateProvider) {
           var data = {
             subject: $scope.subject,
             html: $scope.html,
+            userid: $scope.user._id
           };
 
           fd.append("data", JSON.stringify(data));
