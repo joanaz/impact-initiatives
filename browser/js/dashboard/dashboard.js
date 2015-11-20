@@ -70,7 +70,8 @@ app.config(function($stateProvider) {
           var data = {
             subject: $scope.subject,
             html: $scope.html,
-            userid: $scope.user._id
+            userid: $scope.user._id,
+            username: $scope.user.name
           };
 
           fd.append("data", JSON.stringify(data));

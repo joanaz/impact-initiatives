@@ -3,9 +3,10 @@ app.config(function($stateProvider) {
     url: '/company/:id/write',
     templateUrl: 'js/write-story/write-story.html',
     resolve: {
-      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getUserById($stateParams.id)
+      company: ($stateParams, ProfilesFactory) => ProfilesFactory.getUserById($stateParams.id),
+      user: (AuthService, ProfilesFactory) => AuthService.getLoggedInUser().then(user => ProfilesFactory.getUserById(user._id))
     },
-    controller: ($scope, $state, ProfilesFactory, company) => {
+    controller: ($scope, $state, ProfilesFactory, company, user) => {
       $scope.company = company
       $scope.story = {
         date: "Thurs Oct 22 2015",
@@ -16,6 +17,7 @@ app.config(function($stateProvider) {
         title: "",
         text: "I love Cornell Tech because it is capable of giving me exactly the education I want: both challenging masters level computer science as well as top notch product design experience. The professors and students bring an unrelenting energy to their work. I wouldn't want to go anywhere else."
       };
+      $scope.user = user;
 
       var date = new Date();
 
@@ -34,11 +36,10 @@ app.config(function($stateProvider) {
         console.log($scope.company._id);
 
         var fd = new FormData();
-
+        console.log($scope.user);
         var data = {
-          profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
-          author: "Joanna Zhang",
-          // user: user.id,
+          profile: $scope.user.image,
+          author: $scope.user.name,
           date: date.toDateString(),
           rating: $scope.rating,
           text: $scope.newStory,

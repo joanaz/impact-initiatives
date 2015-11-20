@@ -221,6 +221,12 @@ var users = [{
   password: '123',
   role: 'Investor'
 }, {
+  email: 'joanna@zhang.com',
+  name: 'Joanna Zhang',
+  image: 'https://scontent-iad3-1.xx.fbcdn.net/hprofile-prn2/v/t1.0-1/c0.33.200.200/1888611_10151887945811975_1524207058_n.jpg?oh=f82a6974893531749b63bff6f384ecfb&oe=56F9534F',
+  role: 'Investor',
+  password: '123'
+},{
   email: 'city@light.com',
   password: '123',
   role: 'VC',
