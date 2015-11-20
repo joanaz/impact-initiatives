@@ -1,5 +1,5 @@
 'use strict';
-window.app = angular.module('2BL', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt']);
+window.app = angular.module('ImpactLoop', ['ui.router', 'ui.bootstrap', 'fsaPreBuilt']);
 
 app.config(function($urlRouterProvider, $locationProvider, $sceDelegateProvider) {
     // This turns off hashbang urls (/#about) and changes it to something normal (/about)

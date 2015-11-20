@@ -1,7 +1,7 @@
 <div class="top-padding container">
   <h1 align="center">{{company.name}} </h1>
   <p align="center" class="lead text-muted">{{company.description}}</p>
-  <p align="center" class="text-muted">category: {{comapny.category.name}}</p>
+  <p align="center" class="text-muted">Category: {{company.category.name}}</p>
   <hr>
   <div class="row">
     <div class="col-md-3" ng-repeat="metric in company.metrics">
@@ -9,8 +9,10 @@
     </div>
   </div>
   <hr>
+  <button class="btn btn-block btn-lg btn-IL" ng-click="write()"><b>Share A Story</b></button>
+  <hr>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <!-- <h2>Stories</h2> -->
       <div class="jumbotron" ng-repeat="story in company.stories | filter:{public:true}">
         <div class="jumbotron-photo">
@@ -24,29 +26,31 @@
         <div class="jumbotron-contents">
           <blockquote>
             <p>{{story.text}}</p>
-            <p><small>{{story.author}} {{story.anthorDescription}} {{story.date}}</small></p>
+            <p><small>{{story.author}} {{story.anthorDescription}}, {{story.date | date:'mediumDate'}}</small></p>
           </blockquote>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <h1>15</h1>
-      <h5>total reviews</h5>
+    <div class="col-md-3">
+      <!-- <button class="btn btn-block btn-lg btn-primary" ng-click="write()"><b>Write A Story</b></button> -->
+      <h1>{{company.stories.length}}</h1>
+      <h5>total stories</h5>
       <br>
       <h1>84%</h1>
       <h5>positive sentiment</h5>
       <br>
-      <h3>
-      <i class="fa fa-star text-primary"></i>
-      <i class="fa fa-star text-primary"></i>
-      <i class="fa fa-star text-primary"></i>
-      <i class="fa fa-star  text-primary"></i>
-      <i class="fa fa-star-o text-primary"></i>
-      </h3>
+      <h2>
+        <span ng-repeat="n in [] | range:averageRating">
+          <i class="fa fa-star text-primary"></i>
+        </span>
+        <span ng-repeat="n in [] | range:5-averageRating">
+          <i class="fa fa-star-o text-primary"></i>
+        </span>
+      </h2>
       <h5>average rating</h5>
       <br>
-      <h1><button class="btn btn-lg btn-warning">Log in to see all stories</button></h1>
-      <h1><button class="btn btn-lg btn-primary" ng-click="write()">Get An Invite To Write A Story</button></h1>
+      <!-- <h1><button class="btn btn-lg btn-warning">Log in to see all stories</button></h1> -->
+      
       <br>
       <h2>About</h2>
       <div class="well">

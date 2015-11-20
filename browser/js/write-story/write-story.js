@@ -18,10 +18,15 @@ app.config(function($stateProvider) {
       };
 
       var date = new Date();
-      
+
+      $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
+      };
+
       $scope.uploadedFile = function(element) {
         $scope.$apply(function($scope) {
-          $scope.files = element.files; 
+          $scope.files = element.files;
         });
       }
 

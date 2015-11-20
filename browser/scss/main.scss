@@ -9,7 +9,9 @@ html {
 }
 
 body {
+  // font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: darken(#fdfdfd, 3%);
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
   // padding-top: 60px;
   height: 100%;
@@ -32,6 +34,11 @@ body {
 
 .top-padding {
   padding-top: 10px;
+}
+
+.btn-IL {
+  background-color: darken(turquoise, 5%);
+  border-color: darken(turquoise, 5%);
 }
 
 @import "directives/main";

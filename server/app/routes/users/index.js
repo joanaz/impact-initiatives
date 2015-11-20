@@ -88,7 +88,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.param('id', function(req, res, next, id) {
-  console.log("abcd");
+  // console.log("abcd");
   User.findById(id)
     .populate('category stories metrics')
     .exec()
@@ -123,8 +123,8 @@ router.put('/:id/newStory', upload.single('upload'), function(req, res, next) {
   console.log(JSON.parse(req.body.data));
   var story = new Story(JSON.parse(req.body.data));
   story.user = req.user.id;
-  story["image"] = req.file.path.substring(7);
-  story["date"] = new Date();
+  story.image = req.file.path.substring(7);
+  story.date = new Date();
   story.save(function(err, savedStory) {
     if (err) return next(err);
   }).then(function() {
