@@ -6,6 +6,7 @@ app.directive('metricThumbnail', function() {
       metric: '='
     },
     link: ($scope) => {
+      $scope.ranNum = Math.floor(Math.random() * 5);
       $scope.data = $scope.metric.data[$scope.metric.data.length - 1]
     }
   };

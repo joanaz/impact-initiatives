@@ -6,7 +6,7 @@
       </p>
       <h5 align="center"> {{story.author}}</h5>
       <p>{{story.anthorDescription}}</p>
-      <p align="center" class="text-muted"> {{story.date}}</p>
+      <p align="center" class="text-muted"> {{story.date | date:'mediumDate'}}</p>
       <h3 align="center">
       <span ng-repeat="n in [] | range:story.rating">
         <i class="fa fa-star text-warning"></i>

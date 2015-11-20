@@ -27,7 +27,7 @@ var schema = new mongoose.Schema({
         type: Number
     },
     date: {
-        type: String
+        type: Date
     },
     public: {
         type: Boolean,

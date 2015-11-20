@@ -103,7 +103,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.param('id', function(req, res, next, id) {
-  console.log("abcd");
+  // console.log("abcd");
   User.findById(id)
     .populate('category stories metrics')
     .exec()

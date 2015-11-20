@@ -30,7 +30,7 @@ app.config(function($stateProvider) {
         }, {
           label: 'Metrics',
           state: 'dashboard.metrics',
-          role: 'company'
+          role: 'Company'
         }, {
           label: 'Following',
           state: 'dashboard.following',
@@ -48,8 +48,8 @@ app.config(function($stateProvider) {
       controller: ($scope, ProfilesFactory) => {
         $scope.publish = function(story) {
           story.public = true;
-          console.log(story)
-          ProfilesFactory.updateStory(story._id, story)
+          // console.log(story)
+          ProfilesFactory.publishStory(story._id, story)
         }
       }
     })
