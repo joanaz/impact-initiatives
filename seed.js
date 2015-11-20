@@ -50,7 +50,7 @@ categories = categories.map(function(datum) {
 
 var stories = [{
   date: date1.toDateString(),
-  profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  profile: "https://media.licdn.com/media/AAEAAQAAAAAAAAYzAAAAJDVlZjk1ZDQzLWZkZTQtNGVhMS1iNGI4LTIxYWY3NWEzNDczMA.jpg",
   author: "Hesed Kim",
   anthorDescription: "",
   image: "survey_results/R_2OYJpC3ag4S9uox~IMG_2962.jpg",
@@ -78,7 +78,7 @@ var stories = [{
   score: 0.365313
 }, {
   date: date2.toDateString(),
-  profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  profile: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/09f/39b/00524e9.jpg",
   author: "Ian Folau",
   anthorDescription: "",
   title: "",
@@ -88,7 +88,7 @@ var stories = [{
   score: 0.784476
 }, {
   date: date2.toDateString(),
-  profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  profile: "https://media.licdn.com/media/p/6/005/0a4/3b3/3df849d.jpg",
   author: "Claire Opila",
   anthorDescription: "",
   title: "",
@@ -108,7 +108,7 @@ var stories = [{
   score: 0
 }, {
   date: date2.toDateString(),
-  profile: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  profile: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAALKAAAAJDRjZjY1NmFlLTc3NzMtNDkwZi1iMDY3LTYyNzcyNjVlNTYwMw.jpg",
   author: "Carlos Fernandez",
   anthorDescription: "",
   title: "",
