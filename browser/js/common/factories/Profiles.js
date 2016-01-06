@@ -117,6 +117,9 @@ app.factory('ProfilesFactory', function($http) {
       },
       transformRequest: angular.identity
     }),
-    appendMetric: (id, data) => $http.put('api/metrics/' + id, data)
+    appendMetric: (id, data) => $http.put('api/metrics/' + id, data),
+    getAverageSentiment: (stories) => Math.ceil(stories.reduce(function(pre, cur) {
+      return pre + cur.score
+    }, 0) / stories.length * 100)
   }
 })

@@ -11,13 +11,13 @@ app.config(function($stateProvider) {
       },
       controller: ($scope, user) => {
         $scope.user = user
-        $scope.averageRating = Math.ceil($scope.user.stories.reduce(function(pre, cur) {
+        $scope.averageRating = $scope.user.stories.reduce(function(pre, cur) {
           return pre + cur.rating
-        }, 0) / $scope.user.stories.length);
-
-        $scope.averageSentiment = Math.ceil(Math.sqrt($scope.user.stories.reduce(function(pre, cur) {
+        }, 0) / $scope.user.stories.length;
+        $scope.roundedRating = Math.ceil($scope.averageRating)
+        $scope.averageSentiment = Math.ceil($scope.user.stories.reduce(function(pre, cur) {
           return pre + cur.score
-        }, 0) / $scope.user.stories.length) * 100);
+        }, 0) / $scope.user.stories.length * 100);
 
         $scope.items = [{
           label: 'Profile',

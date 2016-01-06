@@ -12,15 +12,14 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
       }, {
         label: 'VCs',
         state: 'vcs'
-      }, {
-        label: 'My Dashboard',
+}, {        label: 'My Dashboard',
         state: 'dashboard.profile',
         auth: true
       }];
 
       scope.dropdownItems = [{
-        label: 'Settings',
-        state: '',
+        label: 'Dashboard',
+        state: 'test',
         role: 'all'
       }]
 

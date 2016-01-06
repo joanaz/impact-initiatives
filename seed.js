@@ -29,6 +29,7 @@ var Category = Promise.promisifyAll(mongoose.model('Category'));
 
 var date1 = new Date(2015, 9, 22);
 var date2 = new Date(2015, 9, 23);
+var date3 = new Date(2015, 11, 19);
 
 var categories = [{
   image: "http://www.houseintuscany.com/sub_category_copies/0000/0006/photo_education.jpg?1410270167",
@@ -116,7 +117,17 @@ var stories = [{
   text: "",
   rating: 2,
   score: 0
-}];
+}, {
+  date: date3.toDateString(),
+  profile: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/09f/39b/00524e9.jpg",
+  author: "Ian Folau",
+  anthorDescription: "",
+  title: "",
+  text: "The day I decided to go all in on entrepreneurship",
+  video: "survey_results/videoplayback.mp4",
+  rating: 5,
+  score: 0
+}, ];
 
 stories = stories.map(function(datum) {
   return new Story(datum)

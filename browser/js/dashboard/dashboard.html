@@ -19,12 +19,13 @@
             <!-- <button class="btn btn-block btn-warning"> -->
             <h5>
             <p>           
-              <span ng-repeat="n in [] | range:averageRating">
+              <span ng-repeat="n in [] | range:roundedRating">
                 <i class="fa fa-star text-primary"></i>
               </span>
-              <span ng-repeat="n in [] | range:5-averageRating">
+              <span ng-repeat="n in [] | range:5-roundedRating">
                 <i class="fa fa-star-o text-primary"></i>
               </span>
+              Rating: {{averageRating}}
             </p>
             <p>   {{user.stories.length}} total stories</p>
             <p>{{averageSentiment}}% positive sentiment </p>

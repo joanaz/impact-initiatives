@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-md-9">
       <!-- <h2>Stories</h2> -->
-      <div class="jumbotron" ng-repeat="story in company.stories | filter:{public:true}">
+      <div class="jumbotron" ng-repeat="story in company.stories | filter:{public:true} | orderBy:'-date'">
         <div class="jumbotron-photo">
           <img class="img-rounded img-responsive" ng-src="{{story.image}}" ng-if="story.image" style="width:100%;">
           <div class="embed-responsive embed-responsive-16by9" ng-if="story.video">

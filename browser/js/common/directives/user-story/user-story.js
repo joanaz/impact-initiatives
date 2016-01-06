@@ -5,6 +5,11 @@ app.directive('userStory', function() {
     scope: {
       story: '=',
       publish: '&'
+    },
+    link: ($scope) => {
+      console.log($scope.story.score)
+      $scope.score = Math.round($scope.story.score * 100)
+      console.log($scope.score)
     }
   };
 });
